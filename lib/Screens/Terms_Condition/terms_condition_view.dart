@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:booknplay/Services/api_services/apiConstants.dart';
+import 'package:booknplay/Widgets/auth_custom_design.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -28,64 +29,47 @@ class _TermsAndConditionScreenState extends State<TermsAndConditionScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColors.whit,
-        appBar: AppBar(
-          shape: const RoundedRectangleBorder(
-            borderRadius:  BorderRadius.only(
-              bottomLeft: Radius.circular(50.0),bottomRight: Radius.circular(50),
-            ),),
-          toolbarHeight: 60,
-          centerTitle: true,
-          title: const Text("Terms And Condition",style: TextStyle(fontSize: 17),),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              borderRadius:   BorderRadius.only(
-                bottomLeft: Radius.circular(10.0),bottomRight: Radius.circular(10),),
-              gradient: RadialGradient(
-                  center: Alignment.center,
-                  radius: 1.1,
-                  colors: <Color>[AppColors.primary, AppColors.secondary]),
-            ),
+        child: Scaffold(
+          body: Stack(
+            children: [
+              customTmc(context, ''),
+              Padding(
+                // padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height/3.1),
+                padding:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height / 8.1),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  decoration: const BoxDecoration(
+                    color: Color(0xfff6f6f6),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      // Top-left corner radius
+                      topRight: Radius.circular(30),
+                      // Top-right corner radius
+                    ),
+                  ),
+                  child:SingleChildScrollView(
+                    child: Padding(
+                        padding: EdgeInsets.all(10.0),
+                        child: Column(
+                          children: [
+                            termsAndCondition == null ? Center(child: CircularProgressIndicator()) :Html(
+                                data:"${termsAndCondition}"
+                            )
+                          ],
+                        )
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ),
-        body:SingleChildScrollView(
-          child: Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Column(
-                children: [
-                  termsAndCondition == null ? Center(child: CircularProgressIndicator()) :Html(
-                      data:"${termsAndCondition}"
-                  )
-                ],
-              )
-          ),
-        ),
-      ),
-    );
+        ));
+
   }
 
   String? termsAndCondition;
-  // Future<void> getPrivacy() async {
-  //   // isLoading.value = true;
-  //   var param = {
-  //     'content':'privacy_policy'
-  //   };
-  //   apiBaseHelper.postAPICall(getPrivacyAPI, param).then((getData) {
-  //     bool status = getData['status'];
-  //     String msg = getData['msg'];
-  //
-  //     if (status == true) {
-  //       privacyPolicy = getData['content']['name'];
-  //       print('privacyPolicy${privacyPolicy}_________');
-  //       // getSliderModel = GetSliderModel.fromJson(getData);
-  //     } else {
-  //       Fluttertoast.showToast(msg: msg);
-  //     }
-  //     //isLoading.value = false;
-  //   });
-  // }
-
   getTermsApi() async {
     var headers = {
       'Content-Type': 'application/json',
@@ -102,9 +86,8 @@ class _TermsAndConditionScreenState extends State<TermsAndConditionScreen> {
       final result =  await response.stream.bytesToString();
       final jsonResponse = json.decode(result);
       setState(() {
-        termsAndCondition = jsonResponse['content'][0]['name'];
+        termsAndCondition = jsonResponse['content'][0]['terms_condition'];
       });
-
     }
     else {
       print(response.reasonPhrase);

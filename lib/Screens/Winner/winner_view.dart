@@ -25,6 +25,7 @@ import 'package:http/http.dart' as http;
 
 import '../../Widgets/auth_custom_design.dart';
 import '../../Widgets/button.dart';
+import 'lottery_details_winning_list.dart';
 
 class WinnerScreen extends StatefulWidget {
   WinnerScreen({Key? key, this.isFrom, this.gId}) : super(key: key);
@@ -96,8 +97,8 @@ class _WinnerScreenState extends State<WinnerScreen> {
                     children: [
                       Row(
                         children: [
-                          selectedNumber == null ? Text("Select Ticket"): Text("Ticket: ${selectedNumber}",
-                              style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold)),
+                          selectedNumber == null ? Text("Select Lottery No"): Text("Lottery No : ${selectedNumber}",
+                              style: TextStyle(color: AppColors.profileColor,fontWeight: FontWeight.bold,fontSize: 20)),
                           const SizedBox(
                             width: 10,
                           ),
@@ -108,7 +109,7 @@ class _WinnerScreenState extends State<WinnerScreen> {
                         children: [
                           Text(
                             "₹ ${lotteryDetailsModel?.data?.lottery?.ticketPrice}",
-                            style: const TextStyle(color: AppColors.profileColor),
+                            style: const TextStyle(color: AppColors.profileColor,fontWeight: FontWeight.bold,fontSize: 20),
                           )
                         ],
                       ),
@@ -159,86 +160,171 @@ class _WinnerScreenState extends State<WinnerScreen> {
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           children: [
-                            // Row(
-                            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            //   children: [
-                            //     const Text(
-                            //       "Timer",
-                            //       style: TextStyle(
-                            //           color: AppColors.fntClr,
-                            //           fontSize: 15,
-                            //           fontWeight: FontWeight.bold),
-                            //     ),
-                            //     Card(
-                            //         child: Padding(
-                            //           padding: const EdgeInsets.all(8.0),
-                            //           child: Text("$_counter1 : $_counter"),
-                            //         )),
-                            //   ],
-                            // ),
-
-                            //SizedBox(height: 20,),
                             Container(
-                              height: 120,
-                              child: ListView.builder(
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount: lotteryDetailsModel!.data!.lottery!
-                                      .winningPositionHistory!.length,
-                                  // itemCount:2,
-                                  itemBuilder: (context, index) {
-                                    return InkWell(
-                                      onTap: () {
-                                        //Get.toNamed(winnerScreen,arguments:lotteryModel?.data?.lotteries?[index].gameId );
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Container(
-                                          // height: 50,
-                                            width: 160,
-                                            decoration: const BoxDecoration(
-                                                image: DecorationImage(
-                                                    image: AssetImage(
-                                                        "assets/images/winningOrice.png"),
-                                                    fit: BoxFit.fill)),
-                                            child: Column(
-                                              children: [
-                                                const SizedBox(
-                                                  height: 25,
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsets.only(
-                                                      right: 5),
-                                                  child: Text(
-                                                    "${lotteryDetailsModel!.data!.lottery!.winningPositionHistory![index].winningPosition}",
-                                                    style: const TextStyle(
-                                                        color: AppColors.red,
-                                                        fontWeight:
-                                                        FontWeight.bold),
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  height: 20,
-                                                ),
-                                                const Text(
-                                                  "Winner Price ",
-                                                  style: TextStyle(
-                                                      color: AppColors.whit,
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 15),
-                                                ),
-                                                Text(
-                                                  "₹${lotteryDetailsModel!.data!.lottery!.winningPositionHistory![index].winnerPrice}",
-                                                  style: const TextStyle(
-                                                      color: AppColors.whit,
-                                                      fontSize: 15,
-                                                      fontWeight: FontWeight.bold),
-                                                ),
-                                              ],
-                                            )),
-                                      ),
-                                    );
-                                  }),
+                              color: AppColors.lotteryColor,
+                              height: 60,
+                              width: double.maxFinite,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+
+                                    const SizedBox(height: 5,),
+                                    // InkWell(
+                                    //   onTap: (){
+                                    //     // Get.toNamed(winnerScreen);
+                                    //   },
+                                    //   child: getResultModel == null ? Center(child: CircularProgressIndicator()):getResultModel!.data!.lotteries!.length == 0 ? Center(child: Text("No winner list!!")): Container(
+                                    //     height: 80,
+                                    //     child: ListView.builder(
+                                    //         scrollDirection: Axis.horizontal,
+                                    //         itemCount:getResultModel!.data!.lotteries!.length,
+                                    //         itemBuilder: (BuildContext context, int index) {
+                                    //           return  InkWell(
+                                    //             onTap: (){
+                                    //              // Navigator.push(context, MaterialPageRoute(builder: (context)=>WinnerDetailsScreen(gId: getResultModel!.data!.lotteries![index].gameId,)));
+                                    //             },
+                                    //             child: Container(
+                                    //               height: 50,
+                                    //               width: 170,
+                                    //               decoration:  const BoxDecoration(
+                                    //                 image:  DecorationImage(
+                                    //                   image:  AssetImage("assets/images/homewinnerback.png"),
+                                    //                   fit: BoxFit.fill,
+                                    //                 ),
+                                    //               ),
+                                    //               child:  Padding(
+                                    //                 padding: const EdgeInsets.all(8.0),
+                                    //                 child: Column(
+                                    //                   crossAxisAlignment: CrossAxisAlignment.start,
+                                    //                   children: [
+                                    //                     Row(
+                                    //                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    //                       children: [
+                                    //                         Column(
+                                    //                           crossAxisAlignment: CrossAxisAlignment.start,
+                                    //                           children: [
+                                    //                             SizedBox(
+                                    //                                 width: 90,
+                                    //                                 child: Text("${getResultModel!.data!.lotteries![index].gameName}",style: TextStyle(color: AppColors.whit,fontSize: 14),maxLines: 1,overflow: TextOverflow.ellipsis,)),
+                                    //                             SizedBox(height: 3,),
+                                    //                             //Text("₹${getResultModel!.data!.lotteries![index].winners![0].winnerPrice}",style: TextStyle(color: AppColors.whit),),
+                                    //                             SizedBox(height: 3,),
+                                    //                             Container(
+                                    //                                 width: 90,
+                                    //                                 child: Text(getResultModel!.data!.lotteries![index].winners![0].userName??"",style: TextStyle(color: AppColors.whit),maxLines: 1,overflow: TextOverflow.ellipsis,)),
+                                    //                           ],
+                                    //                         ),
+                                    //                         ClipRRect(
+                                    //                           borderRadius: BorderRadius.circular(10),
+                                    //                           child: Container(
+                                    //                               height: 40,
+                                    //                               width: 40,
+                                    //                               child: Image.network("${getResultModel!.data!.lotteries![index].image}",fit: BoxFit.fill,)),
+                                    //                         ),
+                                    //                       ],
+                                    //                     ),
+                                    //
+                                    //                   ],
+                                    //                 ),
+                                    //               ),
+                                    //             ),
+                                    //           );
+                                    //
+                                    //         }
+                                    //     ),
+                                    //   ),
+                                    // ),
+
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text("Winning Drowmoney Price",style: TextStyle(color: AppColors.secondary,fontSize: 18,fontWeight: FontWeight.bold),),
+                                        InkWell(
+                                          onTap: (){
+                                           Navigator.push(context, MaterialPageRoute(builder: (context)=>LotteryDetailsWinningList(gId:widget.gId ,)));
+                                          },
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                                color: AppColors.secondary,
+                                                borderRadius: BorderRadius.circular(5)
+                                            ),
+                                            height: 30,
+                                            width: 60,
+                                            child:
+
+                                            Center(child: Text("View",style: TextStyle(color: AppColors.whit),)),
+                                          ),
+                                        )
+
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
                             ),
+                            // Container(
+                            //   height: 120,
+                            //   child: ListView.builder(
+                            //       scrollDirection: Axis.horizontal,
+                            //       itemCount: lotteryDetailsModel!.data!.lottery!
+                            //           .winningPositionHistory!.length,
+                            //       // itemCount:2,
+                            //       itemBuilder: (context, index) {
+                            //         return InkWell(
+                            //           onTap: () {
+                            //             //Get.toNamed(winnerScreen,arguments:lotteryModel?.data?.lotteries?[index].gameId );
+                            //           },
+                            //           child: Padding(
+                            //             padding: const EdgeInsets.all(5.0),
+                            //             child: Container(
+                            //               // height: 50,
+                            //                 width: 160,
+                            //                 decoration: const BoxDecoration(
+                            //                     image: DecorationImage(
+                            //                         image: AssetImage(
+                            //                             "assets/images/winningOrice.png"),
+                            //                         fit: BoxFit.fill)),
+                            //                 child: Column(
+                            //                   children: [
+                            //                     const SizedBox(
+                            //                       height: 25,
+                            //                     ),
+                            //                     Padding(
+                            //                       padding: const EdgeInsets.only(
+                            //                           right: 5),
+                            //                       child: Text(
+                            //                         "${lotteryDetailsModel!.data!.lottery!.winningPositionHistory![index].winningPosition}",
+                            //                         style: const TextStyle(
+                            //                             color: AppColors.red,
+                            //                             fontWeight:
+                            //                             FontWeight.bold),
+                            //                       ),
+                            //                     ),
+                            //                     const SizedBox(
+                            //                       height: 20,
+                            //                     ),
+                            //                     const Text(
+                            //                       "Winner Price ",
+                            //                       style: TextStyle(
+                            //                           color: AppColors.whit,
+                            //                           fontWeight: FontWeight.bold,
+                            //                           fontSize: 15),
+                            //                     ),
+                            //                     Text(
+                            //                       "₹${lotteryDetailsModel!.data!.lottery!.winningPositionHistory![index].winnerPrice}",
+                            //                       style: const TextStyle(
+                            //                           color: AppColors.whit,
+                            //                           fontSize: 15,
+                            //                           fontWeight: FontWeight.bold),
+                            //                     ),
+                            //                   ],
+                            //                 )),
+                            //           ),
+                            //         );
+                            //       }),
+                            // ),
                             Container(
                               color: AppColors.lotteryColor,
                               child: Padding(
@@ -290,30 +376,36 @@ class _WinnerScreenState extends State<WinnerScreen> {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 50,),
+
                             Container(
-                              height: 180,
-                                width: 250,
+                              height: 420 ,
+                                width: 100,
                               child: ListWheelScrollView(
                                 controller: scrollController,
                                 itemExtent: 30,
-                                perspective: 0.01,
-                                diameterRatio: 2.5,
+                                perspective: 0.005,
+                                diameterRatio: 1,
+                                // offAxisFraction: 1,
+                                scrollBehavior: ScrollBehavior(),
 
                                 // Height of each item in the list
                                 children: List.generate(
                                   int.parse(ticketNumber?? '0'),
                                       (index) => Container(
                                         decoration: BoxDecoration(
-                                            color: AppColors.primary,
-                                          borderRadius: BorderRadius.circular(10)
+                                            color: selectedNumber == index +1 ? selectedItemColor : Colors.grey,
+                                            borderRadius: BorderRadius.circular(10),
+
+
                                         ),
 
                                         height: 50,
                                                child:  Center(
-                                                 child: Text(
-                                                   (index + int.parse(startingNumber?? '0')).toString(),
-                                                   style: TextStyle(fontSize: 30,color: AppColors.whit),
+                                                 child: Center(
+                                                   child: Text(
+                                                     (index + int.parse(startingNumber?? '0')).toString(),
+                                                     style: TextStyle(fontSize: 30,color:  AppColors.fntClr),
+                                                   ),
                                                  ),
                                                ),
                                   ),
@@ -321,6 +413,7 @@ class _WinnerScreenState extends State<WinnerScreen> {
                                 onSelectedItemChanged: (index) {
                                   setState(() {
                                     selectedNumber = index + int.parse(startingNumber?? '0');
+                                    selectedItemColor = AppColors.secondary;
                                     // itemExtent = 30.0 + (selectedNumber! % 30) * 10.0;
                                     print('_____selectedNumber_____${selectedNumber}_________');
                                   });
@@ -344,15 +437,17 @@ class _WinnerScreenState extends State<WinnerScreen> {
 
   }
 
+
+  Color selectedItemColor = Colors.blue; //
   void startAutoScroll() {
-    const Duration scrollDuration = const Duration(milliseconds: 100);
+    const Duration scrollDuration = const Duration(milliseconds: 10);
      Duration pauseDuration =  Duration(seconds: int.parse(time ?? "15"));
 
     timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
       scrollController.animateToItem(
         scrollController.selectedItem + 1,
         duration: scrollDuration,
-        curve: Curves.easeInOut,
+        curve: Curves.linear,
       );
     });
 
@@ -395,6 +490,7 @@ class _WinnerScreenState extends State<WinnerScreen> {
     var request =
         http.Request('POST', Uri.parse('$baseUrl1/Apicontroller/getLottery'));
     request.body = json.encode({"game_id": widget.gId, "user_id": userId});
+    print('_____request.body_____${request.body}_________');
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
     if (response.statusCode == 200) {

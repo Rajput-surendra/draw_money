@@ -20,6 +20,7 @@ class _SignupScreenState extends State<SignupScreen> {
   final nameController = TextEditingController();
   final mobileController = TextEditingController();
   final emailController = TextEditingController();
+  final dobController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
 
@@ -90,11 +91,40 @@ class _SignupScreenState extends State<SignupScreen> {
                                   //       ? 'Selected Date: ${DateFormat('yyyy-MM-dd')}'
                                   //       : 'Select a Date',
                                   // ),
-                                  // TextFormField(
-                                  //   onTap: (){
-                                  //     controller.selectDate(context);
-                                  //   },
-                                  // ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  Container(
+                                    width: double.maxFinite,
+                                    height: 50,
+                                    padding: const EdgeInsets.all(5.0),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.whit,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.grey.withOpacity(0.5),
+                                          blurRadius: 10,
+                                          spreadRadius: 0,
+                                        ),
+                                      ],
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: TextFormField(
+                                      readOnly: true,
+                                           controller: controller.dobController,
+                                      decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                        prefixIcon: Icon(Icons.calendar_month),
+                                        hintText: "Select DOB"
+                                      ),
+                                      onTap: (){
+                                        controller.selectDate(context);
+
+                                      },
+                                    ),
+                                  ),
+
+                                 // Text("${controller.currentDate}"),
                                   const SizedBox(
                                     height: 40,
                                   ),
@@ -109,7 +139,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                         ): AppButton(
                                           title: 'Sign Up',
                                           onTap: () {
-                                            if(mobileController.text.isEmpty && nameController.text.isEmpty && emailController.text.isEmpty) {
+                                            if(mobileController.text.isEmpty && nameController.text.isEmpty && emailController.text.isEmpty && controller.dobController.text.isEmpty) {
                                               Fluttertoast.showToast(msg: "All Fields Required");
                                             } else if(mobileController.text.isEmpty || mobileController.text.length <10 ){
                                               Fluttertoast.showToast(msg: "Please Enter 10 digit number ");
@@ -119,7 +149,9 @@ class _SignupScreenState extends State<SignupScreen> {
                                               controller.registerUser(
                                                   mobile: mobileController.text,
                                                   name: nameController.text,
-                                                  email: emailController.text);
+                                                  email: emailController.text,
+                                                   dob: controller.dobController.text
+                                              );
 
                                             }
                                           },

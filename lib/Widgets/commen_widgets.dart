@@ -51,11 +51,13 @@ Widget textField(
   );
 }
 Widget textField1(
+
     {String? title,
       TextEditingController? controller,
       IconData? prefixIcon,
       IconData? suffixIcon,
       int? maxLength,
+
       TextInputType? inputType}) {
   return Container(
     width: double.maxFinite,

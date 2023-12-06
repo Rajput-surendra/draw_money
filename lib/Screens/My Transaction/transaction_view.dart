@@ -11,6 +11,8 @@ import '../../Services/api_services/apiConstants.dart';
 import '../../Services/api_services/apiStrings.dart';
 import 'package:http/http.dart'as http;
 
+import '../../Widgets/auth_custom_design.dart';
+
 class TransactionScreen extends StatefulWidget {
   TransactionScreen({Key? key, this.isFrom,this.gId}) : super(key: key);
   final bool? isFrom;
@@ -33,60 +35,72 @@ class _TransactionScreenState extends State<TransactionScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        body: Stack(
+          children: [
+            customTra(context, ''),
+            Padding(
+              // padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height/3.1),
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height / 8.1),
+              child:
 
-          backgroundColor: AppColors.whit,
-          appBar: AppBar(
-            shape: const RoundedRectangleBorder(
-              borderRadius:  BorderRadius.only(
-                bottomLeft: Radius.circular(50.0),bottomRight: Radius.circular(50),
-              ),),
-            toolbarHeight: 60,
-            centerTitle: true,
-            title: const Text("My Transaction",style: TextStyle(fontSize: 17),),
-            flexibleSpace: Container(
-              decoration: const BoxDecoration(
-                borderRadius:   BorderRadius.only(
-                  bottomLeft: Radius.circular(10.0),bottomRight: Radius.circular(10),),
-                gradient: RadialGradient(
-                    center: Alignment.center,
-                    radius: 1.1,
-                    colors: <Color>[AppColors.primary, AppColors.secondary]),
+              Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  decoration: const BoxDecoration(
+                    color: Color(0xfff6f6f6),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      // Top-left corner radius
+                      topRight: Radius.circular(30),
+                      // Top-right corner radius
+                    ),
+                  ),
+                  child: SingleChildScrollView(
+
+                    child: getTransactionModel == null ? Center(child: CircularProgressIndicator()): getTransactionModel!.withdrawdata!.length == 0 ? Center(child: Text("Withdraw Trasaction Data Not Available")): SingleChildScrollView(
+                      child: Container(
+                        height: MediaQuery.of(context).size.height/1.1,
+                        child: ListView.builder(
+                            itemCount: getTransactionModel!.withdrawdata!.length,
+                            itemBuilder: (context,i){
+                              return   Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Card(
+                                  elevation: 1,
+                                  child: Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text("${getTransactionModel!.withdrawdata![i].acHolderName}"),
+                                          SizedBox(height: 5,),
+                                          Text("₹ ${getTransactionModel!.withdrawdata![i].requestAmount}"),
+                                          SizedBox(height: 5,),
+                                          Text("${getTransactionModel!.withdrawdata![i].requestNumber}"),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }),
+                      ),
+                    )
+
+
+                  )
               ),
             ),
-          ),
-          body:getTransactionModel == null ? Center(child: CircularProgressIndicator()): getTransactionModel!.withdrawdata!.length == 0 ? Center(child: Text("Withdraw Trasaction Data Not Available")): SingleChildScrollView(
-            child: Container(
-              height: MediaQuery.of(context).size.height/1.1,
-              child: ListView.builder(
-                  itemCount: getTransactionModel!.withdrawdata!.length,
-                  itemBuilder: (context,i){
-                    return   Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Card(
-                        elevation: 1,
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("${getTransactionModel!.withdrawdata![i].acHolderName}"),
-                                SizedBox(height: 5,),
-                                Text("₹ ${getTransactionModel!.withdrawdata![i].requestAmount}"),
-                                SizedBox(height: 5,),
-                                Text("${getTransactionModel!.withdrawdata![i].requestNumber}"),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  }),
-            ),
-          )
 
-      ),
+          ],
+        ),
+
+
+
+      )
     ) ;
   }
 

@@ -1,5 +1,5 @@
 /// msg : "Lotteries list."
-/// data : {"name":"Matka Lottery","lotteries":[{"game_id":"24","game_name":"Matka Lottery","game_name_hindi":"","open_time":"02:00 PM","open_time_sort":"00:00:00","close_time":"06:30 PM","status":"1","result_status":"1","market_status":"1","market_off_day":"","date":"2023-11-22","end_date":"2023-11-24","result_date":"2023-11-27","result_time":"12:12","ticket_price":"500","image":"https://developmentalphawizz.com/lottomoney/assets/images/1700829485alpha_giftnew_logo.png","lottery_number":"","user_count":"0","active":"1"},{"game_id":"25","game_name":"Matka Lottery","game_name_hindi":"","open_time":"11:11 AM","open_time_sort":"00:00:00","close_time":"12:12 PM","status":"1","result_status":"1","market_status":"1","market_off_day":"","date":"2023-11-22","end_date":"2023-11-25","result_date":"2023-11-30","result_time":"12:12","ticket_price":"20","image":"https://developmentalphawizz.com/lottomoney/assets/images/","lottery_number":"","user_count":"0","active":"1"}]}
+/// data : {"name":"Lotteries List","lotteries":[{"game_id":"56","game_name":"Test Monday 05","game_name_hindi":"","open_time":"11:00 AM","open_time_sort":"00:00:00","close_time":"10:00 PM","status":"1","result_status":"1","market_status":"1","market_off_day":"","date":"2023-12-05","end_date":"2023-12-05","result_date":"2023-12-05","result_time":"21:00","ticket_price":"50","image":"https://developmentalphawizz.com/lottomoney/assets/images/1701775902Screenshot2023-08-22160853.png","lottery_number":"","category_id":"","ticket_count":"1000","start_number":"45","game_category":"5","user_count":"5","lottery_count":"5","active":"1","lottery_numbers":"280,108,59","winning_position_history":[{"id":"67","game_id":"56","winner_price":"10000","winning_position":"1","lottery_no":"635"},{"id":"68","game_id":"56","winner_price":"5000","winning_position":"2","lottery_no":"476"},{"id":"69","game_id":"56","winner_price":"2000","winning_position":"3","lottery_no":"316"}]},{"game_id":"57","game_name":"Test Wednesday","game_name_hindi":"","open_time":"01:45 PM","open_time_sort":"00:00:00","close_time":"11:50 PM","status":"1","result_status":"1","market_status":"1","market_off_day":"","date":"2023-12-06","end_date":"2023-12-06","result_date":"2023-12-06","result_time":"13:55","ticket_price":"60","image":"https://developmentalphawizz.com/lottomoney/assets/images/1701850562Lotteryimage.jpg","lottery_number":"","category_id":"","ticket_count":"1000","start_number":"1","game_category":"5","user_count":"2","lottery_count":"2","active":"0","lottery_numbers":"719","winning_position_history":[{"id":"70","game_id":"57","winner_price":"1500","winning_position":"1","lottery_no":"5"},{"id":"71","game_id":"57","winner_price":"1000","winning_position":"2","lottery_no":"17"},{"id":"72","game_id":"57","winner_price":"500","winning_position":"3","lottery_no":"5"}]}]}
 
 class MyLotteryModel {
   MyLotteryModel({
@@ -34,8 +34,8 @@ MyLotteryModel copyWith({  String? msg,
 
 }
 
-/// name : "Matka Lottery"
-/// lotteries : [{"game_id":"24","game_name":"Matka Lottery","game_name_hindi":"","open_time":"02:00 PM","open_time_sort":"00:00:00","close_time":"06:30 PM","status":"1","result_status":"1","market_status":"1","market_off_day":"","date":"2023-11-22","end_date":"2023-11-24","result_date":"2023-11-27","result_time":"12:12","ticket_price":"500","image":"https://developmentalphawizz.com/lottomoney/assets/images/1700829485alpha_giftnew_logo.png","lottery_number":"","user_count":"0","active":"1"},{"game_id":"25","game_name":"Matka Lottery","game_name_hindi":"","open_time":"11:11 AM","open_time_sort":"00:00:00","close_time":"12:12 PM","status":"1","result_status":"1","market_status":"1","market_off_day":"","date":"2023-11-22","end_date":"2023-11-25","result_date":"2023-11-30","result_time":"12:12","ticket_price":"20","image":"https://developmentalphawizz.com/lottomoney/assets/images/","lottery_number":"","user_count":"0","active":"1"}]
+/// name : "Lotteries List"
+/// lotteries : [{"game_id":"56","game_name":"Test Monday 05","game_name_hindi":"","open_time":"11:00 AM","open_time_sort":"00:00:00","close_time":"10:00 PM","status":"1","result_status":"1","market_status":"1","market_off_day":"","date":"2023-12-05","end_date":"2023-12-05","result_date":"2023-12-05","result_time":"21:00","ticket_price":"50","image":"https://developmentalphawizz.com/lottomoney/assets/images/1701775902Screenshot2023-08-22160853.png","lottery_number":"","category_id":"","ticket_count":"1000","start_number":"45","game_category":"5","user_count":"5","lottery_count":"5","active":"1","lottery_numbers":"280,108,59","winning_position_history":[{"id":"67","game_id":"56","winner_price":"10000","winning_position":"1","lottery_no":"635"},{"id":"68","game_id":"56","winner_price":"5000","winning_position":"2","lottery_no":"476"},{"id":"69","game_id":"56","winner_price":"2000","winning_position":"3","lottery_no":"316"}]},{"game_id":"57","game_name":"Test Wednesday","game_name_hindi":"","open_time":"01:45 PM","open_time_sort":"00:00:00","close_time":"11:50 PM","status":"1","result_status":"1","market_status":"1","market_off_day":"","date":"2023-12-06","end_date":"2023-12-06","result_date":"2023-12-06","result_time":"13:55","ticket_price":"60","image":"https://developmentalphawizz.com/lottomoney/assets/images/1701850562Lotteryimage.jpg","lottery_number":"","category_id":"","ticket_count":"1000","start_number":"1","game_category":"5","user_count":"2","lottery_count":"2","active":"0","lottery_numbers":"719","winning_position_history":[{"id":"70","game_id":"57","winner_price":"1500","winning_position":"1","lottery_no":"5"},{"id":"71","game_id":"57","winner_price":"1000","winning_position":"2","lottery_no":"17"},{"id":"72","game_id":"57","winner_price":"500","winning_position":"3","lottery_no":"5"}]}]
 
 class Data {
   Data({
@@ -75,25 +75,32 @@ Data copyWith({  String? name,
 
 }
 
-/// game_id : "24"
-/// game_name : "Matka Lottery"
+/// game_id : "56"
+/// game_name : "Test Monday 05"
 /// game_name_hindi : ""
-/// open_time : "02:00 PM"
+/// open_time : "11:00 AM"
 /// open_time_sort : "00:00:00"
-/// close_time : "06:30 PM"
+/// close_time : "10:00 PM"
 /// status : "1"
 /// result_status : "1"
 /// market_status : "1"
 /// market_off_day : ""
-/// date : "2023-11-22"
-/// end_date : "2023-11-24"
-/// result_date : "2023-11-27"
-/// result_time : "12:12"
-/// ticket_price : "500"
-/// image : "https://developmentalphawizz.com/lottomoney/assets/images/1700829485alpha_giftnew_logo.png"
+/// date : "2023-12-05"
+/// end_date : "2023-12-05"
+/// result_date : "2023-12-05"
+/// result_time : "21:00"
+/// ticket_price : "50"
+/// image : "https://developmentalphawizz.com/lottomoney/assets/images/1701775902Screenshot2023-08-22160853.png"
 /// lottery_number : ""
-/// user_count : "0"
+/// category_id : ""
+/// ticket_count : "1000"
+/// start_number : "45"
+/// game_category : "5"
+/// user_count : "5"
+/// lottery_count : "5"
 /// active : "1"
+/// lottery_numbers : "280,108,59"
+/// winning_position_history : [{"id":"67","game_id":"56","winner_price":"10000","winning_position":"1","lottery_no":"635"},{"id":"68","game_id":"56","winner_price":"5000","winning_position":"2","lottery_no":"476"},{"id":"69","game_id":"56","winner_price":"2000","winning_position":"3","lottery_no":"316"}]
 
 class Lotteries {
   Lotteries({
@@ -114,8 +121,15 @@ class Lotteries {
       String? ticketPrice, 
       String? image, 
       String? lotteryNumber, 
+      String? categoryId, 
+      String? ticketCount, 
+      String? startNumber, 
+      String? gameCategory, 
       String? userCount, 
-      String? active,}){
+      String? lotteryCount, 
+      String? active, 
+      String? lotteryNumbers, 
+      List<WinningPositionHistory>? winningPositionHistory,}){
     _gameId = gameId;
     _gameName = gameName;
     _gameNameHindi = gameNameHindi;
@@ -133,8 +147,15 @@ class Lotteries {
     _ticketPrice = ticketPrice;
     _image = image;
     _lotteryNumber = lotteryNumber;
+    _categoryId = categoryId;
+    _ticketCount = ticketCount;
+    _startNumber = startNumber;
+    _gameCategory = gameCategory;
     _userCount = userCount;
+    _lotteryCount = lotteryCount;
     _active = active;
+    _lotteryNumbers = lotteryNumbers;
+    _winningPositionHistory = winningPositionHistory;
 }
 
   Lotteries.fromJson(dynamic json) {
@@ -155,8 +176,20 @@ class Lotteries {
     _ticketPrice = json['ticket_price'];
     _image = json['image'];
     _lotteryNumber = json['lottery_number'];
+    _categoryId = json['category_id'];
+    _ticketCount = json['ticket_count'];
+    _startNumber = json['start_number'];
+    _gameCategory = json['game_category'];
     _userCount = json['user_count'];
+    _lotteryCount = json['lottery_count'];
     _active = json['active'];
+    _lotteryNumbers = json['lottery_numbers'];
+    if (json['winning_position_history'] != null) {
+      _winningPositionHistory = [];
+      json['winning_position_history'].forEach((v) {
+        _winningPositionHistory?.add(WinningPositionHistory.fromJson(v));
+      });
+    }
   }
   String? _gameId;
   String? _gameName;
@@ -175,8 +208,15 @@ class Lotteries {
   String? _ticketPrice;
   String? _image;
   String? _lotteryNumber;
+  String? _categoryId;
+  String? _ticketCount;
+  String? _startNumber;
+  String? _gameCategory;
   String? _userCount;
+  String? _lotteryCount;
   String? _active;
+  String? _lotteryNumbers;
+  List<WinningPositionHistory>? _winningPositionHistory;
 Lotteries copyWith({  String? gameId,
   String? gameName,
   String? gameNameHindi,
@@ -194,8 +234,15 @@ Lotteries copyWith({  String? gameId,
   String? ticketPrice,
   String? image,
   String? lotteryNumber,
+  String? categoryId,
+  String? ticketCount,
+  String? startNumber,
+  String? gameCategory,
   String? userCount,
+  String? lotteryCount,
   String? active,
+  String? lotteryNumbers,
+  List<WinningPositionHistory>? winningPositionHistory,
 }) => Lotteries(  gameId: gameId ?? _gameId,
   gameName: gameName ?? _gameName,
   gameNameHindi: gameNameHindi ?? _gameNameHindi,
@@ -213,8 +260,15 @@ Lotteries copyWith({  String? gameId,
   ticketPrice: ticketPrice ?? _ticketPrice,
   image: image ?? _image,
   lotteryNumber: lotteryNumber ?? _lotteryNumber,
+  categoryId: categoryId ?? _categoryId,
+  ticketCount: ticketCount ?? _ticketCount,
+  startNumber: startNumber ?? _startNumber,
+  gameCategory: gameCategory ?? _gameCategory,
   userCount: userCount ?? _userCount,
+  lotteryCount: lotteryCount ?? _lotteryCount,
   active: active ?? _active,
+  lotteryNumbers: lotteryNumbers ?? _lotteryNumbers,
+  winningPositionHistory: winningPositionHistory ?? _winningPositionHistory,
 );
   String? get gameId => _gameId;
   String? get gameName => _gameName;
@@ -233,8 +287,15 @@ Lotteries copyWith({  String? gameId,
   String? get ticketPrice => _ticketPrice;
   String? get image => _image;
   String? get lotteryNumber => _lotteryNumber;
+  String? get categoryId => _categoryId;
+  String? get ticketCount => _ticketCount;
+  String? get startNumber => _startNumber;
+  String? get gameCategory => _gameCategory;
   String? get userCount => _userCount;
+  String? get lotteryCount => _lotteryCount;
   String? get active => _active;
+  String? get lotteryNumbers => _lotteryNumbers;
+  List<WinningPositionHistory>? get winningPositionHistory => _winningPositionHistory;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -255,8 +316,78 @@ Lotteries copyWith({  String? gameId,
     map['ticket_price'] = _ticketPrice;
     map['image'] = _image;
     map['lottery_number'] = _lotteryNumber;
+    map['category_id'] = _categoryId;
+    map['ticket_count'] = _ticketCount;
+    map['start_number'] = _startNumber;
+    map['game_category'] = _gameCategory;
     map['user_count'] = _userCount;
+    map['lottery_count'] = _lotteryCount;
     map['active'] = _active;
+    map['lottery_numbers'] = _lotteryNumbers;
+    if (_winningPositionHistory != null) {
+      map['winning_position_history'] = _winningPositionHistory?.map((v) => v.toJson()).toList();
+    }
+    return map;
+  }
+
+}
+
+/// id : "67"
+/// game_id : "56"
+/// winner_price : "10000"
+/// winning_position : "1"
+/// lottery_no : "635"
+
+class WinningPositionHistory {
+  WinningPositionHistory({
+      String? id, 
+      String? gameId, 
+      String? winnerPrice, 
+      String? winningPosition, 
+      String? lotteryNo,}){
+    _id = id;
+    _gameId = gameId;
+    _winnerPrice = winnerPrice;
+    _winningPosition = winningPosition;
+    _lotteryNo = lotteryNo;
+}
+
+  WinningPositionHistory.fromJson(dynamic json) {
+    _id = json['id'];
+    _gameId = json['game_id'];
+    _winnerPrice = json['winner_price'];
+    _winningPosition = json['winning_position'];
+    _lotteryNo = json['lottery_no'];
+  }
+  String? _id;
+  String? _gameId;
+  String? _winnerPrice;
+  String? _winningPosition;
+  String? _lotteryNo;
+WinningPositionHistory copyWith({  String? id,
+  String? gameId,
+  String? winnerPrice,
+  String? winningPosition,
+  String? lotteryNo,
+}) => WinningPositionHistory(  id: id ?? _id,
+  gameId: gameId ?? _gameId,
+  winnerPrice: winnerPrice ?? _winnerPrice,
+  winningPosition: winningPosition ?? _winningPosition,
+  lotteryNo: lotteryNo ?? _lotteryNo,
+);
+  String? get id => _id;
+  String? get gameId => _gameId;
+  String? get winnerPrice => _winnerPrice;
+  String? get winningPosition => _winningPosition;
+  String? get lotteryNo => _lotteryNo;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['id'] = _id;
+    map['game_id'] = _gameId;
+    map['winner_price'] = _winnerPrice;
+    map['winning_position'] = _winningPosition;
+    map['lottery_no'] = _lotteryNo;
     return map;
   }
 

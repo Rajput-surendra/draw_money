@@ -120,14 +120,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget bodyWidget(BuildContext context, ) {
     return RefreshIndicator(
       onRefresh: () {
-        return Future.delayed(Duration(seconds: 2),(){
+        return Future.delayed(const Duration(seconds: 2),(){
          // get();
         });
       },
       child: ListView.builder(
         itemCount: 1,
           itemBuilder: (context,i){
-        return  getProfileModel == null || getProfileModel == " " ? Center(child: CircularProgressIndicator()): SingleChildScrollView(
+        return  getProfileModel == null || getProfileModel == " " ? const Center(child: CircularProgressIndicator()): SingleChildScrollView(
           child: Column(
             children: [
               Container(
@@ -163,7 +163,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             fit: BoxFit.cover,
                             image: NetworkImage("${getProfileModel?.profile?.image}"))),
                   ),
-                  SizedBox(width: 10,),
+                  const SizedBox(width: 10,),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -173,18 +173,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           onTap: (){
                             Navigator.push(context, MaterialPageRoute(builder: (context)=>EditProfileScreen(getProfileModel: getProfileModel,)));
                           },
-                          child: Text("Edit Profile",style: TextStyle(color: AppColors.secondary,fontSize: 15,fontWeight: FontWeight.bold),))),
+                          child: const Text("Edit Profile",style: TextStyle(color: AppColors.secondary,fontSize: 15,fontWeight: FontWeight.bold),))),
                     ],
                   )
 
                 ],),
               ),
               Padding(
-                padding:  EdgeInsets.all(8.0),
+                padding:  const EdgeInsets.all(8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 10,),
+                    const SizedBox(height: 10,),
                     InkWell(
                       onTap: (){
                         Get.toNamed(addMoney);
@@ -200,7 +200,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               // border: Border.all(color: AppColors.fntClr)
                           ),
                           child:  Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -210,11 +210,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       padding: const EdgeInsets.only(left: 6),
                                       child: Image.asset("assets/images/Add Money.png",height: 20,color: AppColors.secondary,),
                                     ),
-                                    SizedBox(width: 10,),
-                                    Text("Add Money",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
+                                    const SizedBox(width: 10,),
+                                    const Text("Add Money",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
                                   ],
                                 ),
-                                Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
+                                const Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
                               ],
                             ),
                           ),
@@ -222,10 +222,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
 
-                    SizedBox(height: 5,),
+                    const SizedBox(height: 5,),
                     InkWell(
                       onTap: (){
-                        Get.toNamed(invitation);
+                        Get.toNamed(bookings);
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(
@@ -238,7 +238,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             // border: Border.all(color: AppColors.fntClr)
                           ),
                           child:  Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -248,11 +248,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       padding: const EdgeInsets.only(left: 6),
                                       child: Image.asset("assets/images/My Invitation.png",height: 20,color: AppColors.secondary,),
                                     ),
-                                    SizedBox(width: 10,),
-                                    Text("My Lottery  ",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
+                                    const SizedBox(width: 10,),
+                                    const Text("My Lottery",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
                                   ],
                                 ),
-                                Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
+                                const Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
                               ],
                             ),
                           ),
@@ -288,7 +288,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     //     ),
                     //   ),
                     // ),
-                    SizedBox(height: 5,),
+                    const SizedBox(height: 5,),
                     InkWell(
                       onTap: (){
                         Get.toNamed(invitation);
@@ -304,7 +304,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               // border: Border.all(color: AppColors.fntClr)
                           ),
                           child:  Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -314,18 +314,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       padding: const EdgeInsets.only(left: 6),
                                       child: Image.asset("assets/images/My Invitation.png",height: 20,color: AppColors.secondary,),
                                     ),
-                                    SizedBox(width: 10,),
-                                    Text("My Invitation",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
+                                    const SizedBox(width: 10,),
+                                    const Text("My Invitation",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
                                   ],
                                 ),
-                                Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
+                                const Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
                               ],
                             ),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(height: 5,),
+                    const SizedBox(height: 5,),
                     InkWell(
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>TransactionScreen()));
@@ -341,7 +341,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               // border: Border.all(color: AppColors.fntClr)
                           ),
                           child:  Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -351,18 +351,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       padding: const EdgeInsets.only(left: 6),
                                       child: Image.asset("assets/images/My Transaction.png",height: 20,color: AppColors.secondary,),
                                     ),
-                                    SizedBox(width: 10,),
-                                    Text("My Transaction",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
+                                    const SizedBox(width: 10,),
+                                    const Text("My Transaction",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
                                   ],
                                 ),
-                                Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
+                                const Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
                               ],
                             ),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(height: 5,),
+                    const SizedBox(height: 5,),
                     
                     InkWell(
                       onTap: (){
@@ -380,7 +380,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             
                           ),
                           child:  Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -390,18 +390,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       padding: const EdgeInsets.only(left: 6),
                                       child: Image.asset("assets/images/Privacy Policy.png",height: 20,color: AppColors.secondary,),
                                     ),
-                                    SizedBox(width: 10,),
-                                    Text("Privacy Policy",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
+                                    const SizedBox(width: 10,),
+                                    const Text("Privacy Policy",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
                                   ],
                                 ),
-                                Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
+                                const Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
                               ],
                             ),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(height: 5,),
+                    const SizedBox(height: 5,),
                     InkWell(
                       onTap: (){
                         Get.toNamed(termConditionScreen);
@@ -418,7 +418,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               //border: Border.all(color: AppColors.fntClr)
                           ),
                           child:  Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -428,18 +428,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       padding: const EdgeInsets.only(left: 6),
                                       child: Image.asset("assets/images/Terms & Conditions.png",height: 20,color: AppColors.secondary,),
                                     ),
-                                    SizedBox(width: 10,),
-                                    Text("Terms and Conditions",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
+                                    const SizedBox(width: 10,),
+                                    const Text("Terms and Conditions",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
                                   ],
                                 ),
-                                Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
+                                const Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
                               ],
                             ),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     InkWell(
                       onTap: (){
                         Get.toNamed(faq);
@@ -455,7 +455,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             
                           ),
                           child:  Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -465,18 +465,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       padding: const EdgeInsets.only(left: 7),
                                       child: Image.asset("assets/images/FAQ.png",height: 20,color: AppColors.secondary,),
                                     ),
-                                    SizedBox(width: 10,),
-                                    Text("FAQs",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
+                                    const SizedBox(width: 10,),
+                                    const Text("FAQs",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
                                   ],
                                 ),
-                                Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
+                                const Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
                               ],
                             ),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(height: 5,),
+                    const SizedBox(height: 5,),
                     AppButton1(
                       title: "Logout",
                       onTap: (){
@@ -513,7 +513,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           },
                         );
                       },
-                    )
+                    ),
+                    const SizedBox(height: 15,),
 
                   ],
                 ),
@@ -535,17 +536,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
 // Function to execute when the user confirms logout
   Widget logOut(context){
     return AlertDialog(
-      title: Text('Confirm Logout'),
-      content: Text('Are you sure you want to log out?'),
+      title: const Text('Confirm Logout'),
+      content: const Text('Are you sure you want to log out?'),
       actions: <Widget>[
         TextButton(
-          child: Text('Cancel'),
+          child: const Text('Cancel'),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
         TextButton(
-          child: Text('Logout'),
+          child: const Text('Logout'),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -592,12 +593,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(title,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               const SizedBox(
                 height: 10,
               ),
               Text(data,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: AppColors.greyColor,
                       fontSize: 16,
                       fontWeight: FontWeight.bold)),
@@ -624,7 +625,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       const SizedBox(
         width: 5,
       ),
-      Text(title, style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),)
+      Text(title, style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 16),)
     ]);
   }
 

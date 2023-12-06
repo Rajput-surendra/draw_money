@@ -437,7 +437,7 @@ Widget customWinner (BuildContext context, String title, {String? image}){
                       },
                       child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
                   const SizedBox(width: 100,),
-                  Text("Winner",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
+                 Text("Winner",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
 
                 ],
               ),
@@ -479,7 +479,669 @@ Widget customWinner (BuildContext context, String title, {String? image}){
     ),
   ],);
 }
+Widget customLottery (BuildContext context, String title, {String? image}){
+  return Stack(children: [
+    Container(
+      height: MediaQuery.of(context).size.height / 2,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20)),
+          color: AppColors.primary
+        // gradient: LinearGradient(
+        //   colors: [AppColors.primary, AppColors.secondary],
+        //   // Define the colors
+        //   begin: Alignment.topCenter,
+        //   end: Alignment.bottomCenter,
+        // ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 30,left: 5,right: 5),
+        child: Column(
+          children: [
+             Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  InkWell(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
+                  const SizedBox(width: 100,),
+                 Text("My Lottery",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
+
+                ],
+              ),
+            ),
+            const SizedBox(height: 10,),
+
+            Text(
+              title,
+              style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
+      ),
+    ),
+    Container(
+      padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height / 9),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: AppColors.secondary,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
+      ),
+    ),
+  ],);
+}
+Widget customDetails (BuildContext context, String title, {String? image}){
+  return Stack(children: [
+    Container(
+      height: MediaQuery.of(context).size.height / 2,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20)),
+          color: AppColors.primary
+        // gradient: LinearGradient(
+        //   colors: [AppColors.primary, AppColors.secondary],
+        //   // Define the colors
+        //   begin: Alignment.topCenter,
+        //   end: Alignment.bottomCenter,
+        // ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 30,left: 5,right: 5),
+        child: Column(
+          children: [
+             Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  InkWell(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
+                  const SizedBox(width: 40,),
+                 const Text("Your Lottery Number",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
+
+                ],
+              ),
+            ),
+            const SizedBox(height: 10,),
+
+            Text(
+              title,
+              style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
+      ),
+    ),
+    Container(
+      padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height / 9),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: AppColors.secondary,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
+      ),
+    ),
+  ],);
+}
+Widget customWinning (BuildContext context, String title, {String? image}){
+  return Stack(children: [
+    Container(
+      height: MediaQuery.of(context).size.height / 2,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20)),
+          color: AppColors.primary
+      ),
+      child:
+      Padding(
+        padding: const EdgeInsets.only(top: 0,left: 5,right: 5),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [SizedBox(height: 20,),
+             Row(
+               children: [
+                 InkWell(
+                  onTap: (){
+                  Navigator.pop(context);
+                  }, child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
+                 SizedBox(width: 30,),
+                 Text(
+                   title,
+                   style: const TextStyle(
+                       fontSize: 25,
+                       fontWeight: FontWeight.w500,
+                       color: Colors.white),
+                 ),
+               ],
+             ),
+            //  Padding(
+            //   padding: EdgeInsets.all(8.0),
+            //   child: Row(
+            //     children: [
+            //       InkWell(
+            //           onTap: (){
+            //             Navigator.pop(context);
+            //           },
+            //           child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
+            //       const SizedBox(width: 60,),
+            //      const Text("Winning Price",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
+            //
+            //     ],
+            //   ),
+            // ),
+            const SizedBox(height: 0,),
 
 
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
+      ),
+    ),
+    Container(
+      padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height / 9),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: AppColors.secondary,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
+      ),
+    ),
+  ],);
+}
+
+
+Widget customInvite (BuildContext context, String title, {String? image}){
+  return Stack(children: [
+    Container(
+      height: MediaQuery.of(context).size.height / 2,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20)),
+          color: AppColors.primary
+
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 30,left: 5,right: 5),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  InkWell(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
+                  const SizedBox(width: 70,),
+                  Text("My Invitation",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
+
+                ],
+              ),
+            ),
+            const SizedBox(height: 10,),
+
+            Text(
+              title,
+              style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
+      ),
+    ),
+    Container(
+      padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height / 9),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: AppColors.secondary,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
+      ),
+    ),
+  ],);
+}
+Widget customTra (BuildContext context, String title, {String? image}){
+  return Stack(children: [
+    Container(
+      height: MediaQuery.of(context).size.height / 2,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20)),
+          color: AppColors.primary
+
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 30,left: 5,right: 5),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  InkWell(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
+                  const SizedBox(width: 70,),
+                  Text("My Transaction",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
+
+                ],
+              ),
+            ),
+            const SizedBox(height: 10,),
+
+            Text(
+              title,
+              style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
+      ),
+    ),
+    Container(
+      padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height / 9),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: AppColors.secondary,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
+      ),
+    ),
+  ],);
+}
+Widget customPrivacy (BuildContext context, String title, {String? image}){
+  return Stack(children: [
+    Container(
+      height: MediaQuery.of(context).size.height / 2,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20)),
+          color: AppColors.primary
+
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 20,left: 5,right: 5),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  InkWell(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
+                  const SizedBox(width: 70,),
+                  Text("Privacy Police",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
+
+                ],
+              ),
+            ),
+            const SizedBox(height: 10,),
+
+            Text(
+              title,
+              style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
+      ),
+    ),
+    Container(
+      padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height / 9),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: AppColors.secondary,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
+      ),
+    ),
+  ],);
+}
+Widget customTmc (BuildContext context, String title, {String? image}){
+  return Stack(children: [
+    Container(
+      height: MediaQuery.of(context).size.height / 2,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20)),
+          color: AppColors.primary
+
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 20,left: 5,right: 5),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  InkWell(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
+                  const SizedBox(width: 40,),
+                  const Text("Term And Condition",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
+
+                ],
+              ),
+            ),
+            const SizedBox(height: 10,),
+
+            Text(
+              title,
+              style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
+      ),
+    ),
+    Container(
+      padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height / 9),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: AppColors.secondary,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
+      ),
+    ),
+  ],);
+}
+Widget customFaq (BuildContext context, String title, {String? image}){
+  return Stack(children: [
+    Container(
+      height: MediaQuery.of(context).size.height / 2,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20)),
+          color: AppColors.primary
+
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 20,left: 5,right: 5),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  InkWell(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
+                  const SizedBox(width: 120,),
+                  const Text("FAQs",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
+
+                ],
+              ),
+            ),
+            const SizedBox(height: 10,),
+
+            Text(
+              title,
+              style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
+      ),
+    ),
+    Container(
+      padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height / 9),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: AppColors.secondary,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
+      ),
+    ),
+  ],);
+}
+Widget customEdit (BuildContext context, String title, {String? image}){
+  return Stack(children: [
+    Container(
+      height: MediaQuery.of(context).size.height / 2,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20)),
+          color: AppColors.primary
+
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 20,left: 5,right: 5),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  InkWell(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
+                  const SizedBox(width: 120,),
+                  const Text("Edit Profile",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
+
+                ],
+              ),
+            ),
+            const SizedBox(height: 10,),
+
+            Text(
+              title,
+              style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
+      ),
+    ),
+    Container(
+      padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height / 9),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: AppColors.secondary,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
+      ),
+    ),
+  ],);
+}
+
+Widget customResultDetails (BuildContext context, String title, {String? image}){
+  return Stack(children: [
+    Container(
+      height: MediaQuery.of(context).size.height / 2,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20)),
+          color: AppColors.primary
+
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 20,left: 5,right: 5),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  InkWell(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
+                  const SizedBox(width: 80,),
+                  const Text("Result Details",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
+
+                ],
+              ),
+            ),
+            const SizedBox(height: 10,),
+
+            Text(
+              title,
+              style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
+      ),
+    ),
+    Container(
+      padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height / 9),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: AppColors.secondary,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
+      ),
+    ),
+  ],);
+}
 
 

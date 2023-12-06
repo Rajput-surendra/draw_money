@@ -178,12 +178,6 @@ class Lottery {
     _active = json['active'];
     _timer = json['timer'];
     _walletBalance = json['wallet_balance'];
-    if (json['lottery_numbers'] != null) {
-      _lotteryNumbers = [];
-      json['lottery_numbers'].forEach((v) {
-        _lotteryNumbers?.add(LotteryNumbers.fromJson(v));
-      });
-    }
     if (json['winning_position_history'] != null) {
       _winningPositionHistory = [];
       json['winning_position_history'].forEach((v) {

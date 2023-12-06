@@ -63,7 +63,7 @@ class _ResultScreenState extends State<ResultScreen> {
                     ),
                   ),
                   child:Padding(
-                    padding: const EdgeInsets.only(right:20,left: 20,top: 30),
+                    padding: const EdgeInsets.only(right:10,left: 10,top: 2),
                     child:  SingleChildScrollView(
                       child: Padding(
                           padding:  EdgeInsets.all(2.0),
@@ -148,7 +148,7 @@ class _ResultScreenState extends State<ResultScreen> {
                                                                                 children: [
                                                                                   Text("${getResultModel!.data!.lotteries![index].gameName}",style: TextStyle(color: AppColors.whit,fontSize: 12),),
                                                                                   SizedBox(height: 3,),
-                                                                                  Text("1st Price : ${getResultModel!.data!.lotteries![0].winners![0].winnerPrice}",style: TextStyle(color: AppColors.whit,fontSize: 18),),
+                                                                                  // Text("1st Price : ${getResultModel!.data!.lotteries![index].winners}",style: TextStyle(color: AppColors.whit,fontSize: 18),),
 
                                                                                 ],
                                                                               ),

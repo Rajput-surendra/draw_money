@@ -14,6 +14,7 @@ import '../../Local_Storage/shared_pre.dart';
 import '../../Models/HomeModel/get_invaite_model.dart';
 import '../../Services/api_services/apiConstants.dart';
 import '../../Services/api_services/apiStrings.dart';
+import '../../Widgets/auth_custom_design.dart';
 import '../../Widgets/button.dart';
 
 class MyInvitation extends StatefulWidget {
@@ -40,76 +41,87 @@ class _MyInvitationState extends State<MyInvitation> {
   }
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.whit,
-        appBar: AppBar(
-          shape: const RoundedRectangleBorder(
-            borderRadius:  BorderRadius.only(
-              bottomLeft: Radius.circular(50.0),bottomRight: Radius.circular(50),
-            ),),
-          toolbarHeight: 60,
-          centerTitle: true,
-          title: const Text("My Invitation",style: TextStyle(fontSize: 17),),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              borderRadius:   BorderRadius.only(
-                bottomLeft: Radius.circular(10.0),bottomRight: Radius.circular(10),),
-              gradient: RadialGradient(
-                  center: Alignment.center,
-                  radius: 1.1,
-                  colors: <Color>[AppColors.primary, AppColors.secondary]),
+
+
+      body: Stack(
+        children: [
+          customInvite(context, ''),
+          Padding(
+            // padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height/3.1),
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height / 8.1),
+            child:
+
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              decoration: const BoxDecoration(
+                color: Color(0xfff6f6f6),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  // Top-left corner radius
+                  topRight: Radius.circular(30),
+                  // Top-right corner radius
+                ),
+              ),
+              child: SingleChildScrollView(
+
+                child:myInvationModel == null ?Center(child: CircularProgressIndicator()):myInvationModel!.invitees!.length == 0 ?Center(child: Text("No Invation List!! ")) :Container(
+                  height: MediaQuery.of(context).size.height/1.1,
+                  child: ListView.builder(
+                      itemCount: myInvationModel?.invitees?.length ?? 0,
+                      itemBuilder: (context,i){
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Card(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text("Name: "),
+                                      SizedBox(height: 3,),
+                                      Text("${myInvationModel?.invitees?[i].userName}",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),)
+                                    ],
+                                  ),
+                                  SizedBox(height: 3,),
+
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text("Mobile No: "),
+                                      SizedBox(height: 3,),
+                                      Text("${myInvationModel?.invitees?[i].mobile}",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold))
+                                    ],
+                                  ),
+                                  SizedBox(height: 3,),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text("Referred By: "),
+                                      SizedBox(height: 3,),
+                                      Text("${myInvationModel?.invitees?[i].referredBy}",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold))
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                ),
+              )
             ),
           ),
-        ),
-        body: SingleChildScrollView(
 
-          child:myInvationModel == null ?Center(child: CircularProgressIndicator()):myInvationModel!.invitees!.length == 0 ?Center(child: Text("No Invation List!! ")) :Container(
-            height: MediaQuery.of(context).size.height/1.1,
-            child: ListView.builder(
-              itemCount: myInvationModel?.invitees?.length ?? 0,
-                itemBuilder: (context,i){
-                     return Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Card(
-                         child: Padding(
-                           padding: const EdgeInsets.all(8.0),
-                           child: Column(
-                             crossAxisAlignment: CrossAxisAlignment.start,
-                             children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("Name: "),
-                                SizedBox(height: 3,),
-                                Text("${myInvationModel?.invitees?[i].userName}",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),)
-                              ],
-                            ),
-                               SizedBox(height: 3,),
+        ],
+      ),
 
-                               Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("Mobile No: "),
-                                SizedBox(height: 3,),
-                                Text("${myInvationModel?.invitees?[i].mobile}",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold))
-                              ],
-                            ),
-                            SizedBox(height: 3,),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("Referred By: "),
-                                SizedBox(height: 3,),
-                                Text("${myInvationModel?.invitees?[i].referredBy}",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold))
-                              ],
-                            ),
-                             ],
-                           ),
-                         ),
-                       ),
-                     );
-               }),
-          ),
-        )
+
+
     );
 
   }
