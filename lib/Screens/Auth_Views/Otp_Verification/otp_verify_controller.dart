@@ -48,6 +48,7 @@ RxBool isLoading = false.obs ;
         SharedPre.setValue('balanceUser', getData['wallet_balance']);
         SharedPre.setValue('userId', getData['user_id'].toString());
         var id =await SharedPre.getStringValue('userId');
+        print('______getData____${getData['wallet_balance']}_________');
         print( id + "VERIFIAITO ");
 
         Fluttertoast.showToast(msg: msg);

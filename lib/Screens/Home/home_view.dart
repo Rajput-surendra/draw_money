@@ -146,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
 
-                                      lotteryModel!.data!.lotteries!.length ==  0 ? Center(child: Text("No Lotteries Found!!")):  Padding(
+                                      lotteryModel== null ? Center(child: CircularProgressIndicator()) :  lotteryModel!.data!.lotteries!.length ==  0 ? Center(child: Text("No Lotteries Found!!")):  Padding(
                                         padding: const EdgeInsets.all(0.0),
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -174,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     itemBuilder: (context, index) {
                                                       return InkWell(
                                                         onTap: (){
-                                                          if(lotteryModel!.data!.lotteries![index].active == '0' ){
+                                                          if(lotteryModel!.data!.lotteries![index].active == '1' ){
                                                             Navigator.push(context, MaterialPageRoute(builder: (context)=>WinnerScreen(gId:lotteryModel?.data?.lotteries?[index].gameId )));
 
                                                           }else{
@@ -230,8 +230,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                     child: Row(
                                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                       children: [
-                                                                        Text("${lotteryModel!.data!.lotteries![index].gameName}",style: TextStyle(color: AppColors.whit,fontSize: 12),),
-                                                                        lotteryModel!.data!.lotteries![index].active == '0' ?  Text("Betting is Running Now",style: TextStyle(color: AppColors.whit,fontSize: 12),):SizedBox.shrink(),
+                                                                        Container(
+                                                                          width: 120,
+                                                                            child: Text("${lotteryModel!.data!.lotteries![index].gameName}",style: TextStyle(color: AppColors.whit,fontSize: 12,),maxLines: 1,overflow: TextOverflow.ellipsis,)),
+                                                                        lotteryModel!.data!.lotteries![index].active == '1' ?  Text("Running Now",style: TextStyle(color: AppColors.whit,fontSize: 12),):SizedBox.shrink(),
                                                                         Container(
                                                                           height: 45,width: 50,
                                                                           child: ClipRRect(

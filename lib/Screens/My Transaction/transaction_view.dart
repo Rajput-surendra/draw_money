@@ -58,7 +58,10 @@ class _TransactionScreenState extends State<TransactionScreen> {
                   ),
                   child: SingleChildScrollView(
 
-                    child: getTransactionModel == null ? Center(child: CircularProgressIndicator()): getTransactionModel!.withdrawdata!.length == 0 ? Center(child: Text("Withdraw Trasaction Data Not Available")): SingleChildScrollView(
+                    child: getTransactionModel == null ? Center(child: CircularProgressIndicator()): getTransactionModel!.withdrawdata!.length == 0 ? Center(child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("Withdraw Trasaction Data Not Available"),
+                    )): SingleChildScrollView(
                       child: Container(
                         height: MediaQuery.of(context).size.height/1.1,
                         child: ListView.builder(

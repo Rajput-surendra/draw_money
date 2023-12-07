@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 import 'dart:io';
+import 'package:booknplay/Services/api_services/apiConstants.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart'as http;
 import 'package:booknplay/Widgets/button.dart';
@@ -31,7 +32,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     nameController.text = widget.getProfileModel?.profile?.userName ?? "" ;
     mobileController.text = widget.getProfileModel?.profile?.mobile ?? "" ;
     emailController.text = widget.getProfileModel?.profile?.email ?? "" ;
+    addressController.text = widget.getProfileModel?.profile?.address ?? "" ;
     image = widget.getProfileModel?.profile?.image  ?? '';
+  print('_____nameController_____${nameController.text}_________');
     super.initState();
 
     referCode();
@@ -49,31 +52,55 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController mobileController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
 
   Future<bool> showExitPopup1() async {
     return await showDialog(
       context: context,
       builder: (context) => AlertDialog(
-          title: Text('Select Image'),
+          title: Center(child: Text('Select Image')),
           content: Row(
             // crossAxisAlignment: CrossAxisAlignment.s,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ElevatedButton(
-                onPressed: () {
+              InkWell(
+                onTap: (){
                   getImage(ImageSource.camera, context, 1);
                 },
-                child: Text('Camera'),
+                child: Container(
+                  height: 40,width: 80,
+                  decoration: BoxDecoration(
+                      color: AppColors.secondary,
+                      borderRadius: BorderRadius.circular(5)
+                  ),
+                  child: Center(child: Text("Camera")),
+                ),
               ),
+
                SizedBox(
                 width: 15,
               ),
-              ElevatedButton(
-                onPressed: () {
+
+              InkWell(
+                onTap: (){
                   getImageCmera(ImageSource.gallery,context,1);
                 },
-                child: Text('Gallery'),
-              ),
+                child: Container(
+                  height: 40,width: 80,
+                  decoration: BoxDecoration(
+                      color: AppColors.secondary,
+                    borderRadius: BorderRadius.circular(5)
+                  ),
+
+                  child: Center(child: Text("Gallery")),
+                ),
+              )
+              // ElevatedButton(
+              //   onPressed: () {
+              //
+              //   },
+              //   child: Text('Gallery'),
+              // ),
             ],
           )),
     ) ; //if showDialouge had returned null, then return false
@@ -230,6 +257,21 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         Container(
                           height: 60,
                           child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: TextFormField(
+                              keyboardType: TextInputType.name,
+                              controller: addressController,
+                              decoration: const InputDecoration(
+                                  contentPadding: EdgeInsets.only(top: 5,left: 10),
+                                  border: OutlineInputBorder(),
+                                  hintText: 'Enter Address'),
+
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 60,
+                          child: Padding(
 
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
@@ -285,9 +327,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     var headers = {
       'Cookie': 'ci_session=df5385d665217dba30014022ebc9598ab69bb28d'
     };
-    var request = http.MultipartRequest('POST', Uri.parse('https://developmentalphawizz.com/lottomoney/Apicontroller/apiProfileUpdate'));
+    var request = http.MultipartRequest('POST', Uri.parse('$baseUrl1/Apicontroller/apiProfileUpdate'));
     request.fields.addAll({
       'user_name':nameController.text,
+      'email':emailController.text,
+      'address':addressController.text,
       'user_id':userId.toString()
     });
     print('____request.fields______${request.fields}_________');

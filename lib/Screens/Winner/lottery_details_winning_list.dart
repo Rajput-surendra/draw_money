@@ -135,13 +135,13 @@ class _LotteryDetailsWinningListState extends State<LotteryDetailsWinningList> {
     var request =
     http.Request('POST', Uri.parse('$baseUrl1/Apicontroller/getLottery'));
     request.body = json.encode({"game_id": widget.gId, "user_id": userId});
-    print('_____request.body_____${request.body}_________');
+
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
     if (response.statusCode == 200) {
       var result = await response.stream.bytesToString();
       var finalResult = LotteryListModel.fromJson(json.decode(result));
-      Fluttertoast.showToast(msg: "${finalResult.msg}");
+     // Fluttertoast.showToast(msg: "${finalResult.msg}");
       setState(() {
         myLotteryModel = finalResult;
         setState(() {

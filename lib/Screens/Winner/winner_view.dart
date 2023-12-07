@@ -86,7 +86,7 @@ class _WinnerScreenState extends State<WinnerScreen> {
         //   child: Icon(Icons.check),
         // ),
         bottomSheet: Container(
-          height: 120,
+          height: 125,
           child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -107,7 +107,7 @@ class _WinnerScreenState extends State<WinnerScreen> {
                       ),
                        Row(
                         children: [
-                          Text(
+                          lotteryDetailsModel?.data?.lottery?.ticketPrice == null ? Text("Price"): Text(
                             "₹ ${lotteryDetailsModel?.data?.lottery?.ticketPrice}",
                             style: const TextStyle(color: AppColors.profileColor,fontWeight: FontWeight.bold,fontSize: 20),
                           )
@@ -240,7 +240,7 @@ class _WinnerScreenState extends State<WinnerScreen> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text("Winning Drowmoney Price",style: TextStyle(color: AppColors.secondary,fontSize: 18,fontWeight: FontWeight.bold),),
+                                        Text("Winning Drawmoney Price",style: TextStyle(color: AppColors.secondary,fontSize: 18,fontWeight: FontWeight.bold),),
                                         InkWell(
                                           onTap: (){
                                            Navigator.push(context, MaterialPageRoute(builder: (context)=>LotteryDetailsWinningList(gId:widget.gId ,)));
@@ -531,6 +531,7 @@ class _WinnerScreenState extends State<WinnerScreen> {
     http.StreamedResponse response = await request.send();
     if (response.statusCode == 200) {
       final result = await response.stream.bytesToString();
+      print('_____result_____${result}_________');
       final jsonResponse = json.decode(result);
       Fluttertoast.showToast(msg: "${jsonResponse['msg']}");
       Navigator.pop(context);

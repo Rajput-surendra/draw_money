@@ -225,7 +225,7 @@ class _ResultScreenState extends State<ResultScreen> {
       setState(() {
         getResultModel = finalResult;
       });
-      Fluttertoast.showToast(msg: "${finalResult.msg}");
+     // Fluttertoast.showToast(msg: "${finalResult.msg}");
     }
     else {
       print(response.reasonPhrase);

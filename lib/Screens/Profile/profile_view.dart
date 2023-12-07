@@ -72,7 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       setState(() {
         getProfileModel= finalResult;
       });
-      Fluttertoast.showToast(msg: "${finalResult.msg}");
+     // Fluttertoast.showToast(msg: "${finalResult.msg}");
     }
     else {
     print(response.reasonPhrase);
@@ -121,7 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return RefreshIndicator(
       onRefresh: () {
         return Future.delayed(const Duration(seconds: 2),(){
-         // get();
+          getProfile();
         });
       },
       child: ListView.builder(
@@ -168,6 +168,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Center(child: Text("${getProfileModel?.profile?.userName}",style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500,color: AppColors.fntClr),)),
+                      Center(child: Text("${getProfileModel?.profile?.email}",style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500,color: AppColors.fntClr),)),
                       Center(child: Text("${getProfileModel?.profile?.mobile}",style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500,color: AppColors.fntClr),)),
                       Center(child: InkWell(
                           onTap: (){
@@ -259,35 +260,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ),
                     ),
-                    // SizedBox(height: 10,),
-                    // InkWell(
-                    //   onTap: (){
-                    //     Navigator.push(context, MaterialPageRoute(builder: (context)=>WithdrawalScreen()));
-                    //   },
-                    //   child: Container(
-                    //     height: 50,
-                    //     decoration: BoxDecoration(
-                    //         borderRadius: BorderRadius.circular(7),
-                    //         border: Border.all(color: AppColors.fntClr)
-                    //     ),
-                    //     child:  Padding(
-                    //       padding: EdgeInsets.all(8.0),
-                    //       child: Row(
-                    //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //         children: [
-                    //           Row(
-                    //             children: [
-                    //               Image.asset("assets/images/Withdrawal.png",height: 20,color: AppColors.profileColor,),
-                    //               SizedBox(width: 10,),
-                    //               Text("Withdrawal",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
-                    //             ],
-                    //           ),
-                    //           Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
-                    //         ],
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
+                    SizedBox(height: 10,),
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>WithdrawalScreen()));
+                      },
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50)
+                        ),
+                        child: Container(
+                          height: 50,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              // border: Border.all(color: AppColors.fntClr)
+                          ),
+                          child:  Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Image.asset("assets/images/Withdrawal.png",height: 20,color: AppColors.secondary,),
+                                    SizedBox(width: 10,),
+                                    Text("Withdrawal",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
+                                  ],
+                                ),
+                                Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                     const SizedBox(height: 5,),
                     InkWell(
                       onTap: (){

@@ -20,6 +20,7 @@ class _SignupScreenState extends State<SignupScreen> {
   final nameController = TextEditingController();
   final mobileController = TextEditingController();
   final emailController = TextEditingController();
+  final addressController = TextEditingController();
   final dobController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
@@ -86,6 +87,15 @@ class _SignupScreenState extends State<SignupScreen> {
                                       inputType: TextInputType.emailAddress,
                                       controller: emailController),
 
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  textField1(
+                                      title: 'Address',
+                                      prefixIcon: Icons.location_on_outlined,
+                                      inputType: TextInputType.name,
+                                      controller:addressController),
+
                                   // Text(
                                   //     controller.selectDate(context)!= null
                                   //       ? 'Selected Date: ${DateFormat('yyyy-MM-dd')}'
@@ -139,7 +149,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                         ): AppButton(
                                           title: 'Sign Up',
                                           onTap: () {
-                                            if(mobileController.text.isEmpty && nameController.text.isEmpty && emailController.text.isEmpty && controller.dobController.text.isEmpty) {
+                                            if(mobileController.text.isEmpty && nameController.text.isEmpty && emailController.text.isEmpty && controller.dobController.text.isEmpty && addressController.text.isEmpty) {
                                               Fluttertoast.showToast(msg: "All Fields Required");
                                             } else if(mobileController.text.isEmpty || mobileController.text.length <10 ){
                                               Fluttertoast.showToast(msg: "Please Enter 10 digit number ");
@@ -150,7 +160,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                                   mobile: mobileController.text,
                                                   name: nameController.text,
                                                   email: emailController.text,
-                                                   dob: controller.dobController.text
+                                                   dob: controller.dobController.text,
+                                                   address:addressController.text
                                               );
 
                                             }

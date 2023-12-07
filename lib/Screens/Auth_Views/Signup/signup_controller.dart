@@ -16,7 +16,8 @@ class SignupController extends AppBaseController {
     required String mobile,
     required String? email,
     required String? name,
-    required String? dob
+    required String? dob,
+    required String? address,
   }) async {
     isLoading.value = true;
 
@@ -25,8 +26,10 @@ class SignupController extends AppBaseController {
       'mobile': mobile,
       'email': email,
       'dob': dob,
+      'address':address,
 
     };
+    print('____param______${param}_________');
     apiBaseHelper.postAPICall(getUserRegister, param).then((getData) {
       bool status = getData['status'];
       String msg = getData['msg'];
@@ -42,23 +45,31 @@ class SignupController extends AppBaseController {
       dobController.clear();
     });
   }
+  String SPLITDATEsTRING(String date) {
+    String dateTimeString = "${date}";
 
-   DateTime currentDate = DateTime.now();
-   DateTime eighteenYearsAgo = DateTime.now().subtract(Duration(days: 365 * 18));
+    // Extract the date part without the time
+    String dateWithoutTime = dateTimeString.substring(0, 10);
+   return dateWithoutTime;
+  }
+
+  DateTime currentDate = DateTime.now();
+  DateTime eighteenYearsAgo = DateTime.now().subtract(Duration(days: 365 * 18));
 
   Future<void> selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: currentDate,
+      initialDate: eighteenYearsAgo, // Set initialDate to eighteenYearsAgo
       firstDate: DateTime(1900),
-      lastDate: eighteenYearsAgo,
+      lastDate: currentDate, // Set lastDate to currentDate
     );
 
     if (picked != null && picked != currentDate) {
       update();
       currentDate = picked;
-      dobController.text = currentDate.toString();
-     print('_____eighteenYearsAgo_____${currentDate}_________');
+      currentDate = DateTime(picked.year, picked.month, picked.day);
+      dobController.text = SPLITDATEsTRING(currentDate.toString());
+
     }
   }
 

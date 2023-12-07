@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import '../../Local_Storage/shared_pre.dart';
 import '../../Models/HomeModel/Get_result_list_Model.dart';
 import '../../Models/HomeModel/get_result_details_model.dart';
 
@@ -29,9 +30,15 @@ class _ResultDetailsScreenState extends State<ResultDetailsScreen> {
   void initState() {
     super.initState();
     // getResultDetails();
+
+    getUser();
+  }
+  String ?userId;
+  getUser() async {
+    userId = await SharedPre.getStringValue('userId');
+    // getTransactionApi();
     getInvatation();
   }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -150,7 +157,8 @@ class _ResultDetailsScreenState extends State<ResultDetailsScreen> {
     };
     var request = http.Request('POST', Uri.parse('$baseUrl1/Apicontroller/getResults'));
     request.body = json.encode({
-      'game_id':widget.gId
+      'game_id':widget.gId,
+      'user_id':                            userId
     });
     print("------Surendra-------${request.body}----------");
     request.headers.addAll(headers);

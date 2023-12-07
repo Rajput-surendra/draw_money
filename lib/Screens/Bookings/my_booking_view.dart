@@ -87,7 +87,7 @@ class _MyBookingsScreenState extends State<MyBookingsScreen> {
                                     Padding(
                                       padding: const EdgeInsets.all(3.0),
                                       child: Container(
-                                        child:myLotteryModel == null ? Center(child: Text(" No Lottery Found!!")): ListView.builder(
+                                        child:myLotteryModel == null ? Center(child: CircularProgressIndicator())  :  myLotteryModel!.data!.lotteries!.isEmpty? Center(child: Text(" No Lottery Found!!")): ListView.builder(
                                             scrollDirection: Axis.vertical,
                                             shrinkWrap: true,
                                             physics: const NeverScrollableScrollPhysics(),

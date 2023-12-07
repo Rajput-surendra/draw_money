@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 
@@ -12,7 +13,10 @@ import 'package:flutter/services.dart';
 import 'dart:ui' as ui;
 
 
+import '../../Local_Storage/shared_pre.dart';
+import '../../Widgets/auth_custom_design.dart';
 import '../../Widgets/button.dart';
+import 'package:http/http.dart'as http;
 
 class AddMoney extends StatefulWidget {
   const AddMoney({Key? key, }) : super(key: key);
@@ -22,77 +26,99 @@ class AddMoney extends StatefulWidget {
 }
 
 class _AddMoneyState extends State<AddMoney> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _razorpay = Razorpay();
-  //   _razorpay?.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
-  //   _razorpay?.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
-  //   _razorpay?.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
-  // }
-  // Razorpay? _razorpay;
-  // int? priceRazorpay;
-  // String id = '';
-  // void openCheckout(amount) async {
-  //   double res = double.parse(amount.toString());
-  //   priceRazorpay= int.parse(res.toStringAsFixed(0)) * 100;
-  //   print("checking razorpay price ${priceRazorpay.toString()}");
-  //   // Navigator.of(context).pop();
-  //   var options = {
-  //     'key': 'rzp_test_1DP5mmOlF5G5ag',
-  //     'amount': "${priceRazorpay}",
-  //     'name': 'Dr.Apps',
-  //     'image':'assets/splash/splashimages.png',
-  //     'description': 'PunjabLottery',
-  //   };
-  //   try {
-  //     _razorpay?.open(options);
-  //   } catch (e) {
-  //     debugPrint('Error: e');
-  //   }
-  // }
-  // Future<void> _handlePaymentSuccess(PaymentSuccessResponse response) async {
-  //   Fluttertoast.showToast(msg: "Subscription added successfully");
-  //   // getplanPurchaseSuccessApi();
-  //
-  // }
-  // void _handlePaymentError(PaymentFailureResponse response) {
-  //   Fluttertoast.showToast(msg: "Payment cancelled by user");
-  //   // setSnackbar("ERROR", context);
-  //   // setSnackbar("Payment cancelled by user", context);
-  // }
-  // void _handleExternalWallet(ExternalWalletResponse response) {
-  // }
+   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    balanceUser();
+  }
+   String? userBalance,userId;
+   balanceUser()  async {
+     userBalance = await SharedPre.getStringValue('balanceUser');
+     userId = await SharedPre.getStringValue('userId');
+     setState(()  {
+       getWalletBallace();
+     });
 
+
+   }
+
+   String ? wallet;
+   getWalletBallace() async {
+     var headers = {
+       'Content-Type': 'application/json',
+       'Cookie': 'ci_session=dc01298267f1df677d56b79b00289958a862e530'
+     };
+     var request = http.Request('POST', Uri.parse('https://developmentalphawizz.com/lottomoney/Apicontroller/getWalletBalance'));
+     request.body = json.encode({
+       "user_id":userId
+     });
+     request.headers.addAll(headers);
+
+     http.StreamedResponse response = await request.send();
+
+     if (response.statusCode == 200) {
+       var result = await response.stream.bytesToString();
+       var finalResult  = jsonDecode(result);
+        setState(() {
+          wallet =  finalResult['wallet_balance'];
+
+        });
+     }
+     else {
+     print(response.reasonPhrase);
+     }
+
+   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.whit,
-        appBar: AppBar(
-          shape: const RoundedRectangleBorder(
-            borderRadius:  BorderRadius.only(
-              bottomLeft: Radius.circular(50.0),bottomRight: Radius.circular(50),
-            ),),
-          toolbarHeight: 60,
-          centerTitle: true,
-          title: const Text("Add Money",style: TextStyle(fontSize: 17),),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              borderRadius:   BorderRadius.only(
-                bottomLeft: Radius.circular(10.0),bottomRight: Radius.circular(10),),
-              gradient: RadialGradient(
-                  center: Alignment.center,
-                  radius: 1.1,
-                  colors: <Color>[AppColors.primary, AppColors.secondary]),
+      body: Stack(
+        children: [
+
+          customAddMoney(context, ''),
+
+          Padding(
+            // padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height/3.1),
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height / 8.1),
+            child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                decoration: const BoxDecoration(
+                  color: Color(0xfff6f6f6),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    // Top-left corner radius
+                    topRight: Radius.circular(30),
+                    // Top-right corner radius
+                  ),
+                ),
+                child: RefreshIndicator(
+                  onRefresh: (){
+                    return Future.delayed(Duration(seconds: 2), () {
+                    //  getLottery();
+                    });
+
+                  },
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        showContent()
+                      ],
+                    )
+                  ),
+                )
             ),
           ),
-        ),
-        body: Column(
-           children: [
-             showContent()
-           ],
-        )
+
+        ],
+      ),
+
+
+
     );
+
   }
   StateSetter? dialogState;
   final _formKey = GlobalKey<FormState>();
@@ -130,7 +156,7 @@ class _AddMoneyState extends State<AddMoney> {
                       ),
                     ],
                   ),
-                  Text("₹150" ),
+                  Text("₹ ${wallet}" ),
                   SizedBox(height: 10,),
                   AppButton1(
                     onTap: (){

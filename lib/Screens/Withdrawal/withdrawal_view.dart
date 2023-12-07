@@ -8,6 +8,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import '../../Local_Storage/shared_pre.dart';
 import '../../Models/HomeModel/Get_transaction_model.dart';
 import '../../Models/HomeModel/lottery_list_model.dart';
+import '../../Widgets/auth_custom_design.dart';
 import '../../Widgets/button.dart';
 import 'package:http/http.dart'as http;
 
@@ -34,8 +35,35 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
     userBalance = await SharedPre.getStringValue('balanceUser');
     userId = await SharedPre.getStringValue('userId');
     setState(() {
-    //  getTransactionApi();
+      getWalletBallace();
     });
+  }
+ String ? wallet;
+  getWalletBallace() async {
+    var headers = {
+      'Content-Type': 'application/json',
+      'Cookie': 'ci_session=dc01298267f1df677d56b79b00289958a862e530'
+    };
+    var request = http.Request('POST', Uri.parse('https://developmentalphawizz.com/lottomoney/Apicontroller/getWalletBalance'));
+    request.body = json.encode({
+      "user_id":userId
+    });
+    request.headers.addAll(headers);
+
+    http.StreamedResponse response = await request.send();
+
+    if (response.statusCode == 200) {
+      var result = await response.stream.bytesToString();
+      var finalResult  = jsonDecode(result);
+      setState(() {
+        wallet =  finalResult['wallet_balance'];
+        print('____finalResult______${wallet}_________');
+      });
+    }
+    else {
+      print(response.reasonPhrase);
+    }
+
   }
   String selectedOption = "UPI";
   String selected = "Withdrawal";
@@ -51,7 +79,51 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return  SafeArea(
+      child: Scaffold(
+        body:  Stack(
+          children: [
+            customWithdrow(context, ''),
+            Padding(
+              // padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height/3.1),
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height / 8.1),
+              child:
+
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                decoration: const BoxDecoration(
+                  color: Color(0xfff6f6f6),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    // Top-left corner radius
+                    topRight: Radius.circular(30),
+                    // Top-right corner radius
+                  ),
+                ),
+                child:SingleChildScrollView(
+                  child:Column(
+                    children: [
+                      tabTop(),
+                      _currentIndex == 1 ? withdrawal():withdrawalRequest()
+
+                    ],
+                  ),
+
+                )
+              ),
+            )
+          ],
+        ),
+
+
+
+
+      ),
+    ) ;
+
+      SafeArea(
       child: Scaffold(
           backgroundColor: AppColors.whit,
           appBar: AppBar(
@@ -446,6 +518,7 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
 
   }
 
+
   LotteryListModel? lotteryDetailsModel;
 
   StateSetter? dialogState;
@@ -483,7 +556,7 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
                       ),
                     ],
                   ),
-                  userBalance == null ? Text("No Balance") :Text("₹${userBalance}" ,style: TextStyle(color: AppColors.fntClr,fontSize: 15),),
+                  wallet == null ? Text("No Balance") :Text("₹${wallet}" ,style: TextStyle(color: AppColors.fntClr,fontSize: 15),),
                   SizedBox(height: 10,),
                 ],
               ),

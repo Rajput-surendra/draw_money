@@ -356,7 +356,7 @@ Widget customResult (BuildContext context, String title, {String? image}){
         // ),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(top: 30,left: 5,right: 5),
+        padding: const EdgeInsets.only(top: 20,left: 5,right: 5),
         child: Column(
           children: [
             const Padding(
@@ -693,7 +693,75 @@ Widget customWinning (BuildContext context, String title, {String? image}){
   ],);
 }
 
+Widget customWithdrow (BuildContext context, String title, {String? image}){
+  return Stack(children: [
+    Container(
+      height: MediaQuery.of(context).size.height / 2,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20)),
+          color: AppColors.primary
+        // gradient: LinearGradient(
+        //   colors: [AppColors.primary, AppColors.secondary],
+        //   // Define the colors
+        //   begin: Alignment.topCenter,
+        //   end: Alignment.bottomCenter,
+        // ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 30,left: 5,right: 5),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  InkWell(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
+                  const SizedBox(width: 100,),
+                  const Text("Wallet",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
 
+                ],
+              ),
+            ),
+            const SizedBox(height: 10,),
+
+            Text(
+              title,
+              style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
+      ),
+    ),
+    Container(
+      padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height / 9),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: AppColors.secondary,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
+      ),
+    ),
+  ],);
+}
 Widget customInvite (BuildContext context, String title, {String? image}){
   return Stack(children: [
     Container(
@@ -758,7 +826,7 @@ Widget customInvite (BuildContext context, String title, {String? image}){
     ),
   ],);
 }
-Widget customTra (BuildContext context, String title, {String? image}){
+Widget customAddMoney (BuildContext context, String title, {String? image}){
   return Stack(children: [
     Container(
       height: MediaQuery.of(context).size.height / 2,
@@ -772,6 +840,70 @@ Widget customTra (BuildContext context, String title, {String? image}){
       ),
       child: Padding(
         padding: const EdgeInsets.only(top: 30,left: 5,right: 5),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  InkWell(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
+                  const SizedBox(width: 70,),
+                  Text("Add Money",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
+
+                ],
+              ),
+            ),
+            const SizedBox(height: 10,),
+
+            Text(
+              title,
+              style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
+      ),
+    ),
+    Container(
+      padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height / 9),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          color: AppColors.secondary,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
+      ),
+    ),
+  ],);
+}
+Widget customTra (BuildContext context, String title, {String? image}){
+  return Stack(children: [
+    Container(
+      height: MediaQuery.of(context).size.height / 2,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20)),
+          color: AppColors.primary
+
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 20,left: 5,right: 5),
         child: Column(
           children: [
             Padding(
@@ -848,7 +980,7 @@ Widget customPrivacy (BuildContext context, String title, {String? image}){
                       },
                       child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
                   const SizedBox(width: 70,),
-                  Text("Privacy Police",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
+                  Text("Privacy Policy",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
 
                 ],
               ),
@@ -1039,7 +1171,7 @@ Widget customEdit (BuildContext context, String title, {String? image}){
                         Navigator.pop(context);
                       },
                       child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
-                  const SizedBox(width: 120,),
+                  const SizedBox(width: 80,),
                   const Text("Edit Profile",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
 
                 ],
