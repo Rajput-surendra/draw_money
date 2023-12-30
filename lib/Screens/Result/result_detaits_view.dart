@@ -158,7 +158,7 @@ class _ResultDetailsScreenState extends State<ResultDetailsScreen> {
     var request = http.Request('POST', Uri.parse('$baseUrl1/Apicontroller/getResults'));
     request.body = json.encode({
       'game_id':widget.gId,
-      'user_id':                            userId
+      'user_id': userId
     });
     print("------Surendra-------${request.body}----------");
     request.headers.addAll(headers);

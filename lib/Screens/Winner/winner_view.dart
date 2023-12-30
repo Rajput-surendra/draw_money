@@ -490,7 +490,6 @@ class _WinnerScreenState extends State<WinnerScreen> {
     var request =
         http.Request('POST', Uri.parse('$baseUrl1/Apicontroller/getLottery'));
     request.body = json.encode({"game_id": widget.gId, "user_id": userId});
-    print('_____request.body_____${request.body}_________');
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
     if (response.statusCode == 200) {
@@ -504,7 +503,6 @@ class _WinnerScreenState extends State<WinnerScreen> {
           ticketNumber = finalResult.data!.lottery!.ticketCount ;
          amount =  finalResult.data!.lottery!.ticketPrice.toString();
          time =  finalResult.data!.lottery!.timer.toString();
-   print('_____time_____${time}_________');
         });
       });
     } else {
@@ -526,12 +524,10 @@ class _WinnerScreenState extends State<WinnerScreen> {
       "order_number": "2675db01c965",
       "txn_id": "2675db01c965ijbdhgd"
     });
-    print('______request.body____${request.body}_________');
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
     if (response.statusCode == 200) {
       final result = await response.stream.bytesToString();
-      print('_____result_____${result}_________');
       final jsonResponse = json.decode(result);
       Fluttertoast.showToast(msg: "${jsonResponse['msg']}");
       Navigator.pop(context);
