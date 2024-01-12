@@ -78,14 +78,14 @@ class _SignupScreenState extends State<SignupScreen> {
                                       inputType: TextInputType.phone,
                                       maxLength: 10,
                                       controller: mobileController),
-                                  const SizedBox(
-                                    height: 15,
-                                  ),
-                                  textField1(
-                                      title: 'Email Id',
-                                      prefixIcon: Icons.email,
-                                      inputType: TextInputType.emailAddress,
-                                      controller: emailController),
+                                  // const SizedBox(
+                                  //   height: 15,
+                                  // ),
+                                  // textField1(
+                                  //     title: 'Email Id',
+                                  //     prefixIcon: Icons.email,
+                                  //     inputType: TextInputType.emailAddress,
+                                  //     controller: emailController),
 
                                   const SizedBox(
                                     height: 15,
@@ -149,7 +149,9 @@ class _SignupScreenState extends State<SignupScreen> {
                                         ): AppButton(
                                           title: 'Sign Up',
                                           onTap: () {
-                                            if(mobileController.text.isEmpty && nameController.text.isEmpty && emailController.text.isEmpty && controller.dobController.text.isEmpty && addressController.text.isEmpty) {
+                                            if(mobileController.text.isEmpty && nameController.text.isEmpty
+                                              //  && emailController.text.isEmpty
+                                                && controller.dobController.text.isEmpty && addressController.text.isEmpty) {
                                               Fluttertoast.showToast(msg: "All Fields Required");
                                             } else if(mobileController.text.isEmpty || mobileController.text.length <10 ){
                                               Fluttertoast.showToast(msg: "Please Enter 10 digit number ");

@@ -250,7 +250,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       child: Image.asset("assets/images/My Invitation.png",height: 20,color: AppColors.secondary,),
                                     ),
                                     const SizedBox(width: 10,),
-                                    const Text("My Lottery",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
+                                    const Text("My Ticket",style: TextStyle(color: AppColors.fntClr,fontWeight: FontWeight.bold),),
                                   ],
                                 ),
                                 const Icon(Icons.arrow_forward_ios_outlined,color: AppColors.greyColor,size: 17,)

@@ -43,7 +43,7 @@ class _MyBookingsScreenState extends State<MyBookingsScreen> {
       body: Stack(
         children: [
 
-          customLottery(context, ''),
+          customLottery(context, 'My Ticket'),
 
           Padding(
             // padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height/3.1),
@@ -102,34 +102,44 @@ class _MyBookingsScreenState extends State<MyBookingsScreen> {
                                                   child: Padding(
                                                     padding: const EdgeInsets.all(5.0),
                                                     child: Container(
-                                                        height: 100,
-                                                        decoration: const BoxDecoration(
-                                                            image: DecorationImage(
-                                                                image: AssetImage("assets/images/myLotterybooking.png"), fit: BoxFit.fill)),
+                                                        height: 120,
+                                                        decoration: BoxDecoration(
+                                                          borderRadius: BorderRadius.circular(8),
+                                                          color: AppColors.whit,
+
+                                                        ),
                                                         child:  Column(
                                                           children: [
-                                                            Padding(
-                                                              padding: const EdgeInsets.only(left: 5,right: 5),
-                                                              child: Row(
-                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                children: [
-                                                                  Row(
-                                                                    children: [
-                                                                      Text("Result Date :",style: TextStyle(color: AppColors.whit,fontSize: 12),),
-                                                                      SizedBox(width: 2,),
-                                                                      Text("${myLotteryModel!.data!.lotteries![index].resultDate}",style: TextStyle(color: AppColors.whit,fontSize: 12),)
-                                                                    ],
-                                                                  ),
-                                                                  Row(
-                                                                    children: [
-                                                                      SizedBox(height: 25,),
-                                                                      Text("Result Time:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
-                                                                      SizedBox(width: 2,),
-                                                                      myLotteryModel!.data!.lotteries![index].resultTime == null ? Text("") :   Text("${myLotteryModel!.data!.lotteries![index].resultTime}",style: TextStyle(color: AppColors.whit,fontSize: 12),)
-                                                                    ],
-                                                                  ),
+                                                            Container(
+                                                              height: 30,
+                                                              decoration: BoxDecoration(
+                                                                borderRadius: BorderRadius.only(topLeft: Radius.circular(8),topRight: Radius.circular(8)),
+                                                                color: AppColors.secondary,
 
-                                                                ],
+                                                              ),
+                                                              child: Padding(
+                                                                padding: const EdgeInsets.only(left: 5,right: 5),
+                                                                child: Row(
+                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                  children: [
+                                                                    Row(
+                                                                      children: [
+                                                                        Text("Result Date :",style: TextStyle(color: AppColors.whit,fontSize: 12),),
+                                                                        SizedBox(width: 2,),
+                                                                        Text("${myLotteryModel!.data!.lotteries![index].resultDate}",style: TextStyle(color: AppColors.whit,fontSize: 12),)
+                                                                      ],
+                                                                    ),
+                                                                    Row(
+                                                                      children: [
+                                                                        SizedBox(height: 25,),
+                                                                        Text("Result Time:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
+                                                                        SizedBox(width: 2,),
+                                                                        myLotteryModel!.data!.lotteries![index].resultTime == null ? Text("") :   Text("${myLotteryModel!.data!.lotteries![index].resultTime}",style: TextStyle(color: AppColors.whit,fontSize: 12),)
+                                                                      ],
+                                                                    ),
+
+                                                                  ],
+                                                                ),
                                                               ),
                                                             ),
                                                             Padding(
@@ -140,11 +150,11 @@ class _MyBookingsScreenState extends State<MyBookingsScreen> {
                                                                   Column(
                                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                                     children: [
-                                                                      Text("${myLotteryModel!.data!.lotteries![index].gameName}",style: TextStyle(color: AppColors.whit,fontSize: 12),),
+                                                                      Text("${myLotteryModel!.data!.lotteries![index].gameName}",style: TextStyle(color: AppColors.fntClr.withOpacity(0.7),fontSize: 12,fontWeight: FontWeight.w500)),
                                                                       SizedBox(height: 3,),
-                                                                      Text("Price : ${myLotteryModel!.data!.lotteries![index].ticketPrice}",style: TextStyle(color: AppColors.whit,fontSize: 18),),
+                                                                      Text("Price : ${myLotteryModel!.data!.lotteries![index].ticketPrice}",style: TextStyle(color: AppColors.fntClr.withOpacity(0.7),fontSize: 12,fontWeight: FontWeight.w500)),
                                                                       SizedBox(height: 3,),
-                                                                      Text("Tap To Lottery Number:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
+                                                                      Text("Tap To Lottery Number:",style: TextStyle(color: AppColors.fntClr.withOpacity(0.7),fontSize: 12,fontWeight: FontWeight.w500)),
                                                                     ],
                                                                   ),
                                                                   Container(

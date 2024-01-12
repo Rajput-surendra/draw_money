@@ -2,8 +2,8 @@ import 'dart:ui';
 
 class AppColors {
 
-  static const Color primary = Color(0xFF0D1024);
-  static const Color secondary = Color(0xFFFFB901);
+  static const Color primary = Color(0xFFE82219);
+  static const Color secondary = Color(0xFFE2E2E2);
   static const Color secondary1 = Color(0xffFD8F3E);
   static const Color whit = Color(0xffffffff);
   static const Color fntClr =  Color(0xff000000);
@@ -15,6 +15,6 @@ class AppColors {
   static const Color textFieldClr = Color(0xfff1f1f1);
   static const Color greyColor = Color(0xffcdd2d9);
   static const Color lotteryColor = Color(0xffF5FBFF);
-  static const Color profileColor = Color(0xffB02915);
+  static const Color profileColor = Color(0xFFE82219);
 
 }

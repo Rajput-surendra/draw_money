@@ -510,7 +510,7 @@ Widget customLottery (BuildContext context, String title, {String? image}){
                       },
                       child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
                   const SizedBox(width: 100,),
-                 Text("My Lottery",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
+                 Text("My Ticket",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
 
                 ],
               ),
@@ -579,7 +579,7 @@ Widget customDetails (BuildContext context, String title, {String? image}){
                       },
                       child: const Icon(Icons.arrow_back_ios_new,color: AppColors.whit,)),
                   const SizedBox(width: 40,),
-                 const Text("Your Lottery Number",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
+                 const Text("Your Ticket Number",style: TextStyle(color: AppColors.whit,fontSize: 25,fontWeight: FontWeight.bold),),
 
                 ],
               ),

@@ -70,7 +70,7 @@ class _LotteryDetailsState extends State<LotteryDetails> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text("Lottery Number :"),
+                                Text("Ticket Number :"),
                                 Text('${item}')
                               ],
                             ),

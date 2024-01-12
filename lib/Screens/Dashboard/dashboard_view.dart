@@ -70,38 +70,45 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
             false; // Exit if the user confirmed (true) or continue if canceled (false).
       },
       child: Scaffold(
-          bottomNavigationBar: CurvedNavigationBar(
-            //buttonBackgroundColor: Colors.white,
-            color: AppColors.secondary,
-            backgroundColor: AppColors.whit,
-            items: const [
-              CurvedNavigationBarItem(
-                  child: ImageIcon(AssetImage(AppConstants.homeIcon),
-                      color: AppColors.whit),
-                  label: 'Home',
-                  labelStyle: TextStyle(color: AppColors.whit)),
-              CurvedNavigationBarItem(
-                  child: ImageIcon(AssetImage(AppConstants.calenderIcon),
-                      color: AppColors.whit),
-                  label: 'Result',
-                  labelStyle: TextStyle(color: AppColors.whit)),
-              // CurvedNavigationBarItem(
-              //     child: ImageIcon(AssetImage(AppConstants.myLotteryIcon),
-              //         color: AppColors.whit),
-              //     label: 'My Lotteries',
-              //     labelStyle: TextStyle(color: AppColors.whit)
-              // ),
-              CurvedNavigationBarItem(
-                  child: ImageIcon(AssetImage(AppConstants.profileIcon),
-                      color: AppColors.whit),
-                  label: 'Account',
-                  labelStyle: TextStyle(color: AppColors.whit)),
-            ],
-            onTap: (index) {
-              setState(() {
-                bottomIndex = index;
-              });
-            },
+          bottomNavigationBar: Material(
+            elevation: 4,
+            color: AppColors.whit,
+            child: CurvedNavigationBar(
+              //buttonBackgroundColor: Colors.white,
+              color: AppColors.whit,
+              backgroundColor: AppColors.secondary,
+
+              items: const [
+                CurvedNavigationBarItem(
+                    child: ImageIcon(AssetImage(AppConstants.homeIcon),
+                        color: AppColors.secondary),
+                    label: 'Home',
+                    labelStyle: TextStyle(color: AppColors.secondary)
+
+                ),
+                CurvedNavigationBarItem(
+                    child: ImageIcon(AssetImage(AppConstants.calenderIcon),
+                        color: AppColors.secondary),
+                    label: 'Result',
+                    labelStyle: TextStyle(color: AppColors.secondary)),
+                // CurvedNavigationBarItem(
+                //     child: ImageIcon(AssetImage(AppConstants.myLotteryIcon),
+                //         color: AppColors.whit),
+                //     label: 'My Lotteries',
+                //     labelStyle: TextStyle(color: AppColors.whit)
+                // ),
+                CurvedNavigationBarItem(
+                    child: ImageIcon(AssetImage(AppConstants.profileIcon),
+                        color: AppColors.secondary),
+                    label: 'Account',
+                    labelStyle: TextStyle(color: AppColors.secondary)),
+              ],
+              onTap: (index) {
+                setState(() {
+                  bottomIndex = index;
+                });
+              },
+            ),
           ),
           key: _key,
           backgroundColor: AppColors.whit,

@@ -129,7 +129,7 @@ class SplashScreen extends StatelessWidget {
               ),
             ),
             child: AnimatedSplashScreen.withScreenFunction(
-              splash: 'assets/images/splashlogo.png',
+              splash: 'assets/images/splashlogo1.png',
               screenFunction: () async {
                 return checkLogin();
 

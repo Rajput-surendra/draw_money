@@ -1,7 +1,7 @@
 class AppConstants {
 
- static const String loginLogo = 'assets/images/login.png';
- static const String signupLogo = 'assets/images/sign up.png';
+ static const String loginLogo = 'assets/images/drawmoneylogin.png';
+ static const String signupLogo = 'assets/images/drawmoneysignup.png';
  static const splashLogo = 'assets/images/splash_logo.png';
  static const verifyOTP = 'assets/images/verification.png';
  static const forgotPassword = 'assets/images/forgot_password.png';

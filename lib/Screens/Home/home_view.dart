@@ -184,45 +184,55 @@ class _HomeScreenState extends State<HomeScreen> {
                                                           //Get.toNamed(winnerScreen,arguments:lotteryModel?.data?.lotteries?[index].gameId );
                                                         },
                                                         child: Padding(
-                                                          padding: const EdgeInsets.all(5.0),
+                                                          padding: const EdgeInsets.all(2.0),
                                                           child: Container(
-                                                              height: 115,
-                                                              decoration: const BoxDecoration(
-                                                                  image: DecorationImage(
-                                                                      image: AssetImage("assets/images/lotteryback.png"), fit: BoxFit.fill)),
+                                                              height: 120,
+                                                              decoration: BoxDecoration(
+                                                                borderRadius: BorderRadius.circular(8),
+                                                                color: AppColors.whit,
+
+                                                              ),
                                                               child:  Column(
                                                                 children: [
-                                                                  Padding(
-                                                                    padding: const EdgeInsets.only(left: 5,right: 5),
-                                                                    child: Row(
-                                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                      children: [
-                                                                        Row(
-                                                                          children: [
+                                                                  Container(
+                                                                    height: 30,
+                                                                    decoration: BoxDecoration(
+                                                                      borderRadius: BorderRadius.only(topLeft: Radius.circular(8),topRight: Radius.circular(8)),
+                                                                      color: AppColors.secondary,
 
-                                                                            Text("Price:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
-                                                                            SizedBox(width: 2,),
-                                                                            Text("${lotteryModel!.data!.lotteries![index].ticketPrice}",style: TextStyle(color: AppColors.whit,fontSize: 12),)
-                                                                          ],
-                                                                        ),
+                                                                    ),
+                                                                    child: Padding(
+                                                                      padding: const EdgeInsets.only(left: 5,right: 5),
+                                                                      child: Row(
+                                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                        children: [
+                                                                          Row(
+                                                                            children: [
 
-                                                                        Row(
-                                                                          children: [
-                                                                            SizedBox(height: 25,),
-                                                                            Text("Open:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
-                                                                            SizedBox(width: 2,),
-                                                                            Text("${lotteryModel!.data!.lotteries![index].openTime}",style: TextStyle(color: AppColors.whit,fontSize: 12),)
-                                                                          ],
-                                                                        ),
-                                                                        Row(
-                                                                          children: [
-                                                                            SizedBox(height: 25,),
-                                                                            Text("Close:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
-                                                                            SizedBox(width: 2,),
-                                                                            Text("${lotteryModel!.data!.lotteries![index].closeTime}",style: TextStyle(color: AppColors.whit,fontSize: 12),)
-                                                                          ],
-                                                                        )
-                                                                      ],
+                                                                              Text("Price:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
+                                                                              SizedBox(width: 2,),
+                                                                              Text("${lotteryModel!.data!.lotteries![index].ticketPrice}",style: TextStyle(color: AppColors.whit,fontSize: 12),)
+                                                                            ],
+                                                                          ),
+
+                                                                          Row(
+                                                                            children: [
+                                                                              SizedBox(height: 25,),
+                                                                              Text("Open:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
+                                                                              SizedBox(width: 2,),
+                                                                              Text("${lotteryModel!.data!.lotteries![index].openTime}",style: TextStyle(color: AppColors.whit,fontSize: 12),)
+                                                                            ],
+                                                                          ),
+                                                                          Row(
+                                                                            children: [
+                                                                              SizedBox(height: 25,),
+                                                                              Text("Close:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
+                                                                              SizedBox(width: 2,),
+                                                                              Text("${lotteryModel!.data!.lotteries![index].closeTime}",style: TextStyle(color: AppColors.whit,fontSize: 12),)
+                                                                            ],
+                                                                          )
+                                                                        ],
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                   Padding(
@@ -232,8 +242,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                       children: [
                                                                         Container(
                                                                           width: 120,
-                                                                            child: Text("${lotteryModel!.data!.lotteries![index].gameName}",style: TextStyle(color: AppColors.whit,fontSize: 12,),maxLines: 1,overflow: TextOverflow.ellipsis,)),
-                                                                        lotteryModel!.data!.lotteries![index].active == '1' ?  Text("Running Now",style: TextStyle(color: AppColors.whit,fontSize: 12),):SizedBox.shrink(),
+                                                                            child: Text("${lotteryModel!.data!.lotteries![index].gameName}",style: TextStyle(color: AppColors.fntClr.withOpacity(0.7),fontSize: 12,fontWeight: FontWeight.w500),maxLines: 1,overflow: TextOverflow.ellipsis,)),
+                                                                        lotteryModel!.data!.lotteries![index].active == '1' ?  Text("Running Now",style: TextStyle(color: AppColors.fntClr.withOpacity(0.7),fontSize: 12,fontWeight: FontWeight.w500),):SizedBox.shrink(),
                                                                         Container(
                                                                           height: 45,width: 50,
                                                                           child: ClipRRect(
@@ -249,29 +259,37 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                     child: Row(
                                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                       children: [
-                                                                        Row(
-                                                                          children: [
-                                                                            SizedBox(height: 25,),
-                                                                            Text("Start:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
-                                                                            SizedBox(width: 2,),
-                                                                            Text("${lotteryModel!.data!.lotteries![index].date}",style: TextStyle(color: AppColors.whit,fontSize: 12),)
-                                                                          ],
+                                                                        Expanded(
+                                                                          child: Row(
+                                                                            children: [
+                                                                              SizedBox(height: 25,),
+                                                                              Text("Start:",style: TextStyle(color: AppColors.fntClr.withOpacity(0.7),fontSize: 10,fontWeight: FontWeight.w500),),
+                                                                              SizedBox(width: 2,),
+                                                                              Text("${lotteryModel!.data!.lotteries![index].date}",style: TextStyle(color: AppColors.fntClr.withOpacity(0.7),fontSize: 10,fontWeight: FontWeight.w500),)
+                                                                            ],
+                                                                          ),
                                                                         ),
-                                                                        Row(
-                                                                          children: [
-                                                                            SizedBox(height: 25,),
-                                                                            Text("End:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
-                                                                            SizedBox(width: 2,),
-                                                                            Text("${lotteryModel!.data!.lotteries![index].endDate}",style: TextStyle(color: AppColors.whit,fontSize: 12),)
-                                                                          ],
+                                                                      
+                                                                        Expanded(
+                                                                          child: Row(
+                                                                            children: [
+                                                                              SizedBox(height: 25,),
+                                                                              Text("End:",style: TextStyle(color: AppColors.fntClr.withOpacity(0.7),fontSize: 10,fontWeight: FontWeight.w500),),
+                                                                              SizedBox(width: 2,),
+                                                                              Text("${lotteryModel!.data!.lotteries![index].endDate}",style: TextStyle(color: AppColors.fntClr.withOpacity(0.7),fontSize: 10,fontWeight: FontWeight.w500),)
+                                                                            ],
+                                                                          ),
                                                                         ),
-                                                                        Row(
-                                                                          children: [
 
-                                                                            Text("Result:",style: TextStyle(color: AppColors.whit,fontSize: 12),),
-                                                                            SizedBox(width: 2,),
-                                                                            Text("${lotteryModel!.data!.lotteries![index].resultDate}",style: TextStyle(color: AppColors.whit,fontSize: 12),)
-                                                                          ],
+                                                                        Expanded(
+                                                                          child: Row(
+                                                                            children: [
+                                                                          
+                                                                              Text("Result:",style: TextStyle(color: AppColors.fntClr.withOpacity(0.7),fontSize: 10,fontWeight: FontWeight.w500),),
+                                                                              SizedBox(width: 2,),
+                                                                              Text("${lotteryModel!.data!.lotteries![index].resultDate}",style: TextStyle(color: AppColors.fntClr.withOpacity(0.7),fontSize: 10,fontWeight: FontWeight.w500),)
+                                                                            ],
+                                                                          ),
                                                                         ),
                                                                       ],
                                                                     ),
